@@ -172,7 +172,7 @@ export default function Home() {
 
       {/* team */}
 
-      <h3 className='leading-[110%] lg:ml-0 mx-auto text-[48px] text-black  lg:text-[60px] mb-[52px] w-full lg:w-auto  text-center border-2 '>
+      <h3 className='leading-[110%] lg:ml-0 mx-auto text-[48px] text-black  lg:text-[60px] mb-[52px] w-full lg:w-auto  text-center '>
         Our Team
       </h3>
       {/* slider */}
