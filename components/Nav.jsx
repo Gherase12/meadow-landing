@@ -73,7 +73,7 @@ function Nav({ homeRef, projectRef, teamRef }) {
             <li className='cursor-pointer'>Docs</li>
           </Link>
         </ul>
-        <Link href='https://meadow-delta.vercel.app/'>
+        <Link href='https://app.meadowlaunch.com/'>
           <button className='bg-white text-black w-[187px] h-[56px] rounded-full '>
             Dashboard
           </button>

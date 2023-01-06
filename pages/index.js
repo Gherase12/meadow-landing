@@ -106,7 +106,7 @@ export default function Home() {
         </motion.h2>
         {/* buttons */}
         <div className='flex absolute bottom-[30px] scale-[0.6] lg:scale-[1]  lg:bottom-[100px] -left-[30px] lg:left-[152px] space-x-[20px] z-40'>
-          <Link href="https://meadow-delta.vercel.app/"> 
+          <Link href="https://app.meadowlaunch.com/"> 
           <button  className='bg-white text-[18px]  shadow-lg text-black w-[187px] h-[56px] rounded-full '>
             Dashboard{" "}
           </button>
@@ -288,7 +288,7 @@ export default function Home() {
           qualified experts who have trackrecord of success.
         </p>
         <div className='flex z-40 space-x-[20px] scale-[0.7] '>
-        <Link href="https://meadow-delta.vercel.app/"> 
+        <Link href="https://app.meadowlaunch.com/"> 
           <button className='bg-white text-black w-[187px] h-[56px] rounded-full z-40 '>
             Dashboard
           </button>
