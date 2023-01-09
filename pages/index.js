@@ -103,7 +103,7 @@ export default function Home() {
           className='absolute text-white top-[275px]  h-[210px] text-ellipsis overflow-hidden lg:top-[432px] lg:left-[152px] text-[12px] lg:text-[16px] leading-[160%] w-[70vw]  lg:w-[702px] font-normal left-[30px] z-40'
         >
           Built for the next generation of users, Meadow will Incubate and
-          launch the most anticipated projects on the Sui Network. Meadow's team
+          launch the most anticipated projects on the Sui Network. Meadow&apos;s team
           consists of veterans and partners who bring years of qualified
           experience in the incubation space which puts us far ahead of our
           competition.
@@ -164,7 +164,7 @@ export default function Home() {
       </Swiper>
 
       {/* Upcoming Game IDOs */}
-      <motion.div
+      {/* <motion.div
         initial='hidden'
         whileInView='visible'
         viewport={{ once: true }}
@@ -189,7 +189,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </motion.div>
+      </motion.div> */}
       {/* privete round */}
       <motion.div
         initial='hidden'
