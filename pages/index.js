@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { BsTwitter } from "react-icons/bs";
 import { FaDiscord } from "react-icons/fa";
-import { AiOutlineInstagram } from "react-icons/ai";
+import { AiOutlineInstagram, AiOutlineArrowRight } from "react-icons/ai";
 import IdoCard from "../components/IdoCard";
 import Info from "./../components/Info";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,7 +18,7 @@ import { useRef } from "react";
 export default function Home() {
   // imgs
   const imgs = ["/meadow-card.svg", "/project1.png", "/project2.png"];
-  const actionCards = ["/action-card-1.png", "/action-card-2.png"];
+  const actionCards = [{title:"Apply for IDO"}, "/action-card-2.png"];
   // refs
   const homeRef = useRef(null);
   const projectRef = useRef(null);
@@ -130,7 +130,7 @@ export default function Home() {
       </div>
       {/* IDO's */}
 
-      <motion.div
+      {/* <motion.div
         initial='hidden'
         whileInView='visible'
         viewport={{ once: true }}
@@ -161,7 +161,7 @@ export default function Home() {
             <IdoCard img={i} />
           </SwiperSlide>
         ))}
-      </Swiper>
+      </Swiper> */}
 
       {/* Upcoming Game IDOs */}
       {/* <motion.div
@@ -224,21 +224,63 @@ export default function Home() {
         whileInView='visible'
         viewport={{ once: true }}
         variants={inViewVariants}
-        className='flex    lg:justify-center lg:overflow-hidden flex-row space-x-[10px] lg:space-x-[10px] pl-[20px]  z-10 mb-[60px] lg:mb-[152px] overflow-x-scroll '
+        className='flex scrollbar-hide   lg:justify-center lg:overflow-hidden  lg:flex-row  lg:space-x-[10px] pl-[20px]  z-10 mb-[60px] lg:mb-[152px] overflow-x-scroll '
       >
-        {actionCards.map((c, i) => (
+        
           <div
-            className=' relative flex-shrink-0  w-[300px] h-[200px] lg:w-[650px] lg:h-[463px]  '
-            key={i}
+            className={` -mx-[180px] lg:mx-0 py-[50px] lg:scale-[1] px-[60px] scale-[0.5]  relative flex-shrink-0  border-2 rounded-[55px] w-[650px] h-[463px] bg-action-card-1 ` }
+            
           >
+            <h2 className="text-[48px] font-bold text-[#03326B] mb-[41px]" >Apply for IDO</h2>
+            <p className="w-[496px] h-[130px] text-[16px] text-[#3E81A2] font-bold mb-[65px]">
+            Meadow is always looking for the most creative game changing projects, feel free to apply for an IDO on Meadow. Your project will be critically vetted by our team of experts and if you are succesful we will work with you to take your project to another level.
+            </p> 
+            <button className="border-[1px] rounded-full w-[64px] h-[64px] flex items-center justify-center text-[25px] border-white text-white ">
+                <AiOutlineArrowRight />
+            </button>
             <Image
-              src={c}
-              fill
-              className='object-cover rounded-[20px]  lg:rounded-[55px] '
+              src={"/action/object-1.webp"}
+              
+              className='absolute left-[206px] bottom-0'
               alt='action-card'
+              width={355}
+              height={354}
             />
           </div>
-        ))}
+
+          <div
+            className={`-mx-[130px]  py-[50px] px-[60px] scale-[0.5] lg:scale-[1]  relative flex-shrink-0   border-2 rounded-[55px] w-[650px] h-[463px] bg-action-card-2 ` }
+          
+          >
+            <Image
+              src={"/action/object-2.webp"}
+              
+              className='absolute left-[60px] top-0'
+              alt='action-card'
+              width={369}
+              height={369}
+            />
+            <Image
+              src={"/action/object-3.webp"}
+              
+              className='absolute right-0 top-[100px] '
+              alt='action-card'
+              width={207}
+              height={208}
+            />
+            <div className="flex justify-end w-full ">
+
+            <button className="border-[1px] rounded-full w-[64px] mb-[91px] h-[64px] flex items-center justify-center text-[25px] border-white text-white ">
+                <AiOutlineArrowRight />
+            </button>
+            </div>
+             <h2 className="text-[48px] font-bold text-[#03326B] mb-[41px]" >Apply for IDO</h2>
+            <p className="w-[486px] h-[130px] text-[16px] text-[#3E81A2] font-bold mb-[65px]">
+            We create a Meadow marketing army. You can be part of our marketing if you’re willing to put your social accounts to work. If you feel you want to be part of the team and add value, we’d for sure love to welcome you to the Meadow.
+            </p> 
+          
+          </div>
+       
       </motion.div>
 
       {/* team */}

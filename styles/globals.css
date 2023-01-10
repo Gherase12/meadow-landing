@@ -40,5 +40,18 @@ box-shadow: 0px 145px 87px rgba(83, 135, 162, 0.01), 0px 64px 64px rgba(83, 135,
 
 scrolled {
   background-color: #111;
- 
 }
+
+.shadow-action-card{
+  
+box-shadow: 0px 304px 122px rgba(0, 191, 255, 0.01), 0px 171px 103px rgba(0, 191, 255, 0.03), 0px 76px 76px rgba(0, 191, 255, 0.05), 0px 19px 42px rgba(0, 191, 255, 0.06), 0px 0px 0px rgba(0, 191, 255, 0.06);
+backdrop-filter: blur(20px);
+}
+
+.bg-action-card-1{
+  background: linear-gradient(243.19deg, rgba(196, 235, 255, 0.65) 2.13%, #58C8FF 100%);
+}
+.bg-action-card-2{
+  background: linear-gradient(116.43deg, rgba(196, 235, 255, 0.65) 5.72%, #58C8FF 100%);
+}
+
