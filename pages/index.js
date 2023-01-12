@@ -13,9 +13,12 @@ import Nav from "../components/Nav";
 import { motion } from "framer-motion";
 
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import LoadingOverlay from "../components/LoadingOverlay";
 
 export default function Home() {
+
+  const[loading, setLoading] =useState(false)
   // imgs
   const imgs = ["/meadow-card.svg", "/project1.png", "/project2.png"];
   const actionCards = [{title:"Apply for IDO"}, "/action-card-2.png"];
@@ -52,16 +55,19 @@ export default function Home() {
     hidden: { opacity: 0, y: 200 },
     transition: { delay: 4, duration: 2 },
   };
-
+  
   return (
+
+
     <div className='lg:p-[20px] overflow-hidden relative'>
+     {loading && (<LoadingOverlay/>)} 
       <Head>
-        <title>Create Next App</title>
+        <title>Meadow home</title>
         <meta name='description' content='Meadow' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='meadow' href='/meadow-sm.svg' />
       </Head>
-      <Nav homeRef={homeRef} projectRef={projectRef} teamRef={teamRef} />
+      <Nav homeRef={homeRef} projectRef={projectRef} teamRef={teamRef} setLoading={setLoading} />
       {/* header */}
       <div
         ref={homeRef}
@@ -110,7 +116,7 @@ export default function Home() {
         </motion.h2>
         {/* buttons */}
         <div className='flex absolute bottom-[30px] scale-[0.6] lg:scale-[1]  lg:bottom-[100px] -left-[30px] lg:left-[152px] space-x-[20px] z-40'>
-          <Link href='https://app.meadowlaunch.com/'>
+          <Link href='https://app.meadowlaunch.com/'  onClick={()=>setLoading(true)}>
             <button className='bg-white text-[18px]  shadow-lg text-black w-[187px] h-[56px] rounded-full '>
               Dashboard{" "}
             </button>
@@ -349,7 +355,7 @@ export default function Home() {
           qualified experts who have trackrecord of success.
         </p>
         <div className='flex z-40 space-x-[20px] scale-[0.7] '>
-          <Link href='https://app.meadowlaunch.com/'>
+          <Link href='https://app.meadowlaunch.com/'  onClick={()=>setLoading(true)}>
             <button className='bg-white text-black w-[187px] h-[56px] rounded-full z-40 '>
               Dashboard
             </button>

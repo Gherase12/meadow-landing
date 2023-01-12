@@ -5,7 +5,7 @@ import { RiCloseFill } from "react-icons/ri";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-function Nav({ homeRef, projectRef, teamRef }) {
+function Nav({ homeRef, projectRef, teamRef, setLoading }) {
   const [open, setOpen] = useState(false);
   const addStyle = ["background-gradient", "pb-[10px]"];
   const removeStyle = ["lg:pt-[40px]"];
@@ -73,7 +73,7 @@ function Nav({ homeRef, projectRef, teamRef }) {
             <li className='cursor-pointer'>Docs</li>
           </Link>
         </ul>
-        <Link href='https://app.meadowlaunch.com/'>
+        <Link href='https://app.meadowlaunch.com/' onClick={()=>setLoading(true)}>
           <button className='bg-white text-black w-[187px] h-[56px] rounded-full '>
             Dashboard
           </button>
