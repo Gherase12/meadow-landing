@@ -17,11 +17,10 @@ import { useRef, useState } from "react";
 import LoadingOverlay from "../components/LoadingOverlay";
 
 export default function Home() {
-
-  const[loading, setLoading] =useState(false)
+  const [loading, setLoading] = useState(false);
   // imgs
   const imgs = ["/meadow-card.svg", "/project1.png", "/project2.png"];
-  const actionCards = [{title:"Apply for IDO"}, "/action-card-2.png"];
+  const actionCards = [{ title: "Apply for IDO" }, "/action-card-2.png"];
   // refs
   const homeRef = useRef(null);
   const projectRef = useRef(null);
@@ -29,7 +28,7 @@ export default function Home() {
   // imfo
   const info = [
     {
-      name: "3M tokens",
+      name: "1,3M - 1,4M tokens",
       details: "Initial circulating supply",
       img: "/object-4.webp",
     },
@@ -39,7 +38,7 @@ export default function Home() {
       img: "/object-5.webp",
     },
     {
-      name: "$600,000",
+      name: "$155,000",
       details: "Initial Marketcap",
       img: "/object-6.webp",
     },
@@ -55,19 +54,22 @@ export default function Home() {
     hidden: { opacity: 0, y: 200 },
     transition: { delay: 4, duration: 2 },
   };
-  
+
   return (
-
-
     <div className='lg:p-[20px] overflow-hidden relative'>
-     {loading && (<LoadingOverlay/>)} 
+      {loading && <LoadingOverlay />}
       <Head>
         <title>Meadow home</title>
         <meta name='description' content='Meadow' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='meadow' href='/meadow-sm.svg' />
       </Head>
-      <Nav homeRef={homeRef} projectRef={projectRef} teamRef={teamRef} setLoading={setLoading} />
+      <Nav
+        homeRef={homeRef}
+        projectRef={projectRef}
+        teamRef={teamRef}
+        setLoading={setLoading}
+      />
       {/* header */}
       <div
         ref={homeRef}
@@ -109,14 +111,17 @@ export default function Home() {
           className='absolute text-white top-[275px]  h-[210px] text-ellipsis overflow-hidden lg:top-[432px] lg:left-[152px] text-[12px] lg:text-[16px] leading-[160%] w-[70vw]  lg:w-[702px] font-normal left-[30px] z-40'
         >
           Built for the next generation of users, Meadow will Incubate and
-          launch the most anticipated projects on the Sui Network. Meadow&apos;s team
-          consists of veterans and partners who bring years of qualified
+          launch the most anticipated projects on the Sui Network. Meadow&apos;s
+          team consists of veterans and partners who bring years of qualified
           experience in the incubation space which puts us far ahead of our
           competition.
         </motion.h2>
         {/* buttons */}
         <div className='flex absolute bottom-[30px] scale-[0.6] lg:scale-[1]  lg:bottom-[100px] -left-[30px] lg:left-[152px] space-x-[20px] z-40'>
-          <Link href='https://app.meadowlaunch.com/'  onClick={()=>setLoading(true)}>
+          <Link
+            href='https://app.meadowlaunch.com/'
+            onClick={() => setLoading(true)}
+          >
             <button className='bg-white text-[18px]  shadow-lg text-black w-[187px] h-[56px] rounded-full '>
               Dashboard{" "}
             </button>
@@ -232,61 +237,62 @@ export default function Home() {
         variants={inViewVariants}
         className='flex scrollbar-hide   lg:justify-center lg:overflow-hidden  lg:flex-row  lg:space-x-[10px] pl-[20px]  z-10 mb-[60px] lg:mb-[152px] overflow-x-scroll '
       >
-        
-          <div
-            className={` -mx-[180px] lg:mx-0 py-[50px] lg:scale-[1] px-[60px] scale-[0.5]  relative flex-shrink-0  border-2 rounded-[55px] w-[650px] h-[463px] bg-action-card-1 ` }
-            
-          >
-            <h2 className="text-[48px] font-bold text-[#03326B] mb-[41px]" >Apply for IDO</h2>
-            <p className="w-[496px] h-[130px] text-[16px] text-[#3E81A2] font-bold mb-[65px]">
-            Meadow is always looking for the most creative game changing projects, feel free to apply for an IDO on Meadow. Your project will be critically vetted by our team of experts and if you are succesful we will work with you to take your project to another level.
-            </p> 
-            <button className="border-[1px] rounded-full w-[64px] h-[64px] flex items-center justify-center text-[25px] border-white text-white ">
-                <AiOutlineArrowRight />
-            </button>
-            <Image
-              src={"/action/object-1.webp"}
-              
-              className='absolute left-[206px] bottom-0'
-              alt='action-card'
-              width={355}
-              height={354}
-            />
-          </div>
+        <div
+          className={` -mx-[180px] lg:mx-0 py-[50px] lg:scale-[1] px-[60px] scale-[0.5]  relative flex-shrink-0  border-2 rounded-[55px] w-[650px] h-[463px] bg-action-card-1 `}
+        >
+          <h2 className='text-[48px] font-bold text-[#03326B] mb-[41px]'>
+            Apply for IDO
+          </h2>
+          <p className='w-[496px] h-[130px] text-[16px] text-[#3E81A2] font-bold mb-[65px]'>
+            Meadow is always looking for the most creative game changing
+            projects, feel free to apply for an IDO on Meadow. Your project will
+            be critically vetted by our team of experts and if you are succesful
+            we will work with you to take your project to another level.
+          </p>
+          <button className='border-[1px] rounded-full w-[64px] h-[64px] flex items-center justify-center text-[25px] border-white text-white '>
+            <AiOutlineArrowRight />
+          </button>
+          <Image
+            src={"/action/object-1.webp"}
+            className='absolute left-[206px] bottom-0'
+            alt='action-card'
+            width={355}
+            height={354}
+          />
+        </div>
 
-          <div
-            className={`-mx-[130px]  py-[50px] px-[60px] scale-[0.5] lg:scale-[1]  relative flex-shrink-0   border-2 rounded-[55px] w-[650px] h-[463px] bg-action-card-2 ` }
-          
-          >
-            <Image
-              src={"/action/object-2.webp"}
-              
-              className='absolute left-[60px] top-0'
-              alt='action-card'
-              width={369}
-              height={369}
-            />
-            <Image
-              src={"/action/object-3.webp"}
-              
-              className='absolute right-0 top-[100px] '
-              alt='action-card'
-              width={207}
-              height={208}
-            />
-            <div className="flex justify-end w-full ">
-
-            <button className="border-[1px] rounded-full w-[64px] mb-[91px] h-[64px] flex items-center justify-center text-[25px] border-white text-white ">
-                <AiOutlineArrowRight />
+        <div
+          className={`-mx-[130px]  py-[50px] px-[60px] scale-[0.5] lg:scale-[1]  relative flex-shrink-0   border-2 rounded-[55px] w-[650px] h-[463px] bg-action-card-2 `}
+        >
+          <Image
+            src={"/action/object-2.webp"}
+            className='absolute left-[60px] top-0'
+            alt='action-card'
+            width={369}
+            height={369}
+          />
+          <Image
+            src={"/action/object-3.webp"}
+            className='absolute right-0 top-[100px] '
+            alt='action-card'
+            width={207}
+            height={208}
+          />
+          <div className='flex justify-end w-full '>
+            <button className='border-[1px] rounded-full w-[64px] mb-[91px] h-[64px] flex items-center justify-center text-[25px] border-white text-white '>
+              <AiOutlineArrowRight />
             </button>
-            </div>
-             <h2 className="text-[48px] font-bold text-[#03326B] mb-[41px]" >Apply for IDO</h2>
-            <p className="w-[486px] h-[130px] text-[16px] text-[#3E81A2] font-bold mb-[65px]">
-            We create a Meadow marketing army. You can be part of our marketing if you’re willing to put your social accounts to work. If you feel you want to be part of the team and add value, we’d for sure love to welcome you to the Meadow.
-            </p> 
-          
           </div>
-       
+          <h2 className='text-[48px] font-bold text-[#03326B] mb-[41px]'>
+          Apply for KOL
+          </h2>
+          <p className='w-[486px] h-[130px] text-[16px] text-[#3E81A2] font-bold mb-[65px]'>
+            We create a Meadow marketing army. You can be part of our marketing
+            if you’re willing to put your social accounts to work. If you feel
+            you want to be part of the team and add value, we’d for sure love to
+            welcome you to the Meadow.
+          </p>
+        </div>
       </motion.div>
 
       {/* team */}
@@ -355,7 +361,10 @@ export default function Home() {
           qualified experts who have trackrecord of success.
         </p>
         <div className='flex z-40 space-x-[20px] scale-[0.7] '>
-          <Link href='https://app.meadowlaunch.com/'  onClick={()=>setLoading(true)}>
+          <Link
+            href='https://app.meadowlaunch.com/'
+            onClick={() => setLoading(true)}
+          >
             <button className='bg-white text-black w-[187px] h-[56px] rounded-full z-40 '>
               Dashboard
             </button>
