@@ -28,7 +28,7 @@ export default function Home() {
   // imfo
   const info = [
     {
-      name: "1,3M - 1,4M tokens",
+      name: "1.4M tokens",
       details: "Initial circulating supply",
       img: "/object-4.webp",
     },
