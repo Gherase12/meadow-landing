@@ -2,11 +2,17 @@ import Head from "next/head";
 import Image from "next/image";
 import { BsTwitter } from "react-icons/bs";
 import { FaDiscord } from "react-icons/fa";
-import { AiOutlineInstagram, AiOutlineArrowRight } from "react-icons/ai";
+import {
+  AiOutlineInstagram,
+  AiOutlinePlusCircle,
+  AiOutlineArrowRight,
+  AiOutlineMinusCircle,
+} from "react-icons/ai";
 import IdoCard from "../components/IdoCard";
 import Info from "./../components/Info";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import Nav from "../components/Nav";
@@ -43,6 +49,34 @@ export default function Home() {
       img: "/object-6.webp",
     },
   ];
+
+  const faq = [
+    {
+      q: "Is there a free trial available?",
+      a: "Main cryptocurrencies and blockchains are here: BTC, ETH, and USDT.With Bitcoin, Ethereum, Binance Smart Chain, Polygon supported.",
+    },
+    {
+      q: "Can I change my plan later?",
+      a: "Main cryptocurrencies and blockchains are here: BTC, ETH, and USDT.With Bitcoin, Ethereum, Binance Smart Chain, Polygon supported.",
+    },
+    {
+      q: "What is your cancellation policy?",
+      a: "Main cryptocurrencies and blockchains are here: BTC, ETH, and USDT.With Bitcoin, Ethereum, Binance Smart Chain, Polygon supported.",
+    },
+    {
+      q: "Can other info be added to an invoice?",
+      a: "Main cryptocurrencies and blockchains are here: BTC, ETH, and USDT.With Bitcoin, Ethereum, Binance Smart Chain, Polygon supported.",
+    },
+    {
+      q: "How does billing work?",
+      a: "Main cryptocurrencies and blockchains are here: BTC, ETH, and USDT.With Bitcoin, Ethereum, Binance Smart Chain, Polygon supported.",
+    },
+    {
+      q: "How do I change my account email?",
+      a: "Main cryptocurrencies and blockchains are here: BTC, ETH, and USDT.With Bitcoin, Ethereum, Binance Smart Chain, Polygon supported.",
+    },
+  ];
+
   // framer motion variants
   const orizontalVariants = {
     visible: { opacity: 1, x: 0 },
@@ -238,7 +272,7 @@ export default function Home() {
         className='flex scrollbar-hide   lg:justify-center lg:overflow-hidden  lg:flex-row  lg:space-x-[10px] pl-[20px]  z-10 mb-[60px] lg:mb-[152px] overflow-x-scroll '
       >
         <div
-          className={` -mx-[180px] lg:mx-0 py-[50px] lg:scale-[1] px-[60px] scale-[0.5]  relative flex-shrink-0  border-2 rounded-[55px] w-[650px] h-[463px] bg-action-card-1 `}
+          className={` -mx-[180px] lg:mx-0 py-[50px] lg:scale-[1] px-[60px] scale-[0.5]  relative flex-shrink-0   rounded-[55px] w-[650px] h-[463px] bg-action-card-1 `}
         >
           <h2 className='text-[48px] font-bold text-[#03326B] mb-[41px]'>
             Apply for IDO
@@ -262,7 +296,7 @@ export default function Home() {
         </div>
 
         <div
-          className={`-mx-[130px]  py-[50px] px-[60px] scale-[0.5] lg:scale-[1]  relative flex-shrink-0   border-2 rounded-[55px] w-[650px] h-[463px] bg-action-card-2 `}
+          className={`-mx-[130px]  py-[50px] px-[60px] scale-[0.5] lg:scale-[1]  relative flex-shrink-0    rounded-[55px] w-[650px] h-[463px] bg-action-card-2 `}
         >
           <Image
             src={"/action/object-2.webp"}
@@ -284,7 +318,7 @@ export default function Home() {
             </button>
           </div>
           <h2 className='text-[48px] font-bold text-[#03326B] mb-[41px]'>
-          Apply for KOL
+            Apply for KOL
           </h2>
           <p className='w-[486px] h-[130px] text-[16px] text-[#3E81A2] font-bold mb-[65px]'>
             We create a Meadow marketing army. You can be part of our marketing
@@ -337,6 +371,34 @@ export default function Home() {
             </SwiperSlide>
           ))}
         </Swiper>
+      </motion.div>
+
+      <motion.div
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true }}
+      variants={inViewVariants}
+      className='flex   flex-col lg:flex-row justify-center mb-[150px]  px-[20px]'>
+        <div className='lg:w-[438px] '>
+          <h3 className='text-[48px] mb-[27px]'>FAQ</h3>
+          <p className='w-[274px] text-[16px] '>
+            Everything you need to know about the product and billing.
+          </p>
+        </div>
+        <div className=''>
+          {faq.map(({ q, a }, i) => (
+            <div className='h-[88px] items-center  flex border-t-[1px] first:border-t-0 ' key={i}>
+              <h3 className=' text-[15px] lg:text-[24px] font-medium  w-[768px] relative  '>
+                {
+                  <AiOutlinePlusCircle className='absolute right-0 top-[5px] ' />
+                }
+
+                {q}
+              </h3>
+              {/* <p>{a}</p> */}
+            </div>
+          ))}
+        </div>
       </motion.div>
       {/* join section */}
       <motion.div
