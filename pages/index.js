@@ -60,7 +60,7 @@ export default function Home() {
     },
     {
       q: " What’s the benefit of having Legend role?",
-      a: "Legend Roles are very limited but have the absolute best benefits for our community members: \n \n- Automatic whitelist for private round \n- Exclusive private channel \n- Eligble to participate in any contest or giveaways \n- More allocation in the private round \n- Possible automatic whitelist opportunities for other launches \n \n More details : https://meadow.gitbook.io/docs/tutorial/crew-3 )",
+      a: "Legend Roles are very limited but have the absolute best benefits for our community members: \n \n- Automatic whitelist for private round \n- Exclusive private channel \n- Eligble to participate in any contest or giveaways \n- More allocation in the private round \n- Possible automatic whitelist opportunities for other launches \n \nMore details: ",
     },
     {
       q: "Will it support other wallets and chains?",
@@ -72,11 +72,11 @@ export default function Home() {
     },
     {
       q: "How many token will  be available for the team?",
-      a: " See here on our Gitbook for detailed Tokenomics \n https://meadow.gitbook.io/docs/tokenomics",
+      a: " See here on our Gitbook for detailed Tokenomics \n ",
     },
     {
       q: "What insurance claims are set for each level?",
-      a: "Diamond: 30% \n Gold 15% \n See for more details: https://meadow.gitbook.io/docs/insurance",
+      a: "Diamond: 30% \n Gold 15% \n See for more details: ",
     },
   ];
 
