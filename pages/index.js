@@ -21,6 +21,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import LoadingOverlay from "../components/LoadingOverlay";
+import ActionCards from "./../components/ActionCards";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -111,14 +112,14 @@ export default function Home() {
       >
         {/* images */}
 
-        <div className='absolute hidden lg:flex w-[822px] h-[822px] right-[280px] top-[270px] scale-[1.4] z-30 '>
+        <div className='absolute w-[150px] h-[150px] bottom-[60px] right-0  lg:w-[822px] lg:h-[822px] lg:right-[280px] lg:top-[270px] lg:scale-[1.2] z-30 '>
           <Image src={"/object-1.webp"} fill alt='object-1' />
         </div>
 
-        <div className='absolute w-[261px] hidden lg:flex scale-[1.6] h-[261px] right-[365px] top-[101px]  z-30 '>
+        <div className='absolute lg:w-[261px] w-[100px] h-[100px]  top-0  right-[100px]  lg:scale-[1.6] lg:h-[261px] lg:right-[365px] lg:top-[101px]  z-30 '>
           <Image src={"/object-2.webp"} fill alt='object-2' />
         </div>
-        <div className='absolute   w-[432px] hidden lg:flex h-[432px] -right-[100px] top-[142px]  z-30 '>
+        <div className='absolute w-[120px] h-[120px] -right-[20px] top-[180px]   lg:w-[432px]  lg:h-[432px] lg:-right-[100px] lg:top-[142px]  z-30 '>
           <Image
             src={"/object-3.webp"}
             fill
@@ -247,7 +248,7 @@ export default function Home() {
           <h3 className='leading-[110%] lg:text-[48px] text-black mb-[30px]  text-[30px] lg:ml-0 ml-[20px] w-[300px] lg:w-[426px] h-[106px]'>
             Private Round & Token Information
           </h3>
-          <p className='lg:w-[426px] h-[130px] leading-[160%] text-[16px] lg:ml-0 ml-[20px]   font-normal'>
+          <p className=' h-[130px] leading-[160%] text-[16px] lg:ml-0 ml-[20px]  max-w-[426px]   font-normal'>
             The Private Round will be priced at $0.10 and the Public Round will
             be priced at $0.20. The private round will be open for participants
             but there will be a set of requirements that must be completed in
@@ -264,70 +265,7 @@ export default function Home() {
       </motion.div>
 
       {/* action cards */}
-      <motion.div
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true }}
-        variants={inViewVariants}
-        className='flex scrollbar-hide   lg:justify-center lg:overflow-hidden  lg:flex-row  lg:space-x-[10px] pl-[20px]  z-10 mb-[60px] lg:mb-[152px] overflow-x-scroll '
-      >
-        <div
-          className={` -mx-[180px] lg:mx-0 py-[50px] lg:scale-[1] px-[60px] scale-[0.5]  relative flex-shrink-0   rounded-[55px] w-[650px] h-[463px] bg-action-card-1 `}
-        >
-          <h2 className='text-[48px] font-bold text-[#03326B] mb-[41px]'>
-            Apply for IDO
-          </h2>
-          <p className='w-[496px] h-[130px] text-[16px] text-[#3E81A2] font-bold mb-[65px]'>
-            Meadow is always looking for the most creative game changing
-            projects, feel free to apply for an IDO on Meadow. Your project will
-            be critically vetted by our team of experts and if you are succesful
-            we will work with you to take your project to another level.
-          </p>
-          <button className='border-[1px] rounded-full w-[64px] h-[64px] flex items-center justify-center text-[25px] border-white text-white '>
-            <AiOutlineArrowRight />
-          </button>
-          <Image
-            src={"/action/object-1.webp"}
-            className='absolute left-[206px] bottom-0'
-            alt='action-card'
-            width={355}
-            height={354}
-          />
-        </div>
-
-        <div
-          className={`-mx-[130px]  py-[50px] px-[60px] scale-[0.5] lg:scale-[1]  relative flex-shrink-0    rounded-[55px] w-[650px] h-[463px] bg-action-card-2 `}
-        >
-          <Image
-            src={"/action/object-2.webp"}
-            className='absolute left-[60px] top-0'
-            alt='action-card'
-            width={369}
-            height={369}
-          />
-          <Image
-            src={"/action/object-3.webp"}
-            className='absolute right-0 top-[100px] '
-            alt='action-card'
-            width={207}
-            height={208}
-          />
-          <div className='flex justify-end w-full '>
-            <button className='border-[1px] rounded-full w-[64px] mb-[91px] h-[64px] flex items-center justify-center text-[25px] border-white text-white '>
-              <AiOutlineArrowRight />
-            </button>
-          </div>
-          <h2 className='text-[48px] font-bold text-[#03326B] mb-[41px]'>
-            Apply for KOL
-          </h2>
-          <p className='w-[486px] h-[130px] text-[16px] text-[#3E81A2] font-bold mb-[65px]'>
-            We create a Meadow marketing army. You can be part of our marketing
-            if you’re willing to put your social accounts to work. If you feel
-            you want to be part of the team and add value, we’d for sure love to
-            welcome you to the Meadow.
-          </p>
-        </div>
-      </motion.div>
+      <ActionCards inViewVariants={inViewVariants} />
 
       {/* team */}
 
@@ -337,7 +275,7 @@ export default function Home() {
         viewport={{ once: true }}
         variants={orizontalVariants}
         ref={teamRef}
-        className='leading-[110%] lg:ml-0 mx-auto text-[48px] text-black  lg:text-[60px] mb-[52px] w-full lg:w-auto  text-center '
+        className='leading-[110%] lg:ml-0 mx-auto text-[48px] text-black  lg:text-[60px]   lg:mb-[52px] w-full lg:w-auto  text-center '
       >
         Our Team
       </motion.h3>
@@ -347,7 +285,7 @@ export default function Home() {
         whileInView='visible'
         viewport={{ once: true }}
         variants={inViewVariants}
-        className=' max-w-[1500px] mx-auto mb-[100px] '
+        className=' max-w-[1500px] mx-auto  mb-[50px] lg:mb-[100px] '
       >
         <Swiper
           slidesPerView={"auto"}
@@ -360,7 +298,7 @@ export default function Home() {
         >
           {[...Array(8)].map((m, i) => (
             <SwiperSlide key={i}>
-              <div className=' w-[338px]  h-[351px] relative  lg:w-[538px] lg:h-[351px]'>
+              <div className=' w-[338px]  h-[351px] relative  lg:w-[538px] '>
                 <Image
                   src={`/team/member-${i + 1}.svg`}
                   fill
@@ -374,11 +312,12 @@ export default function Home() {
       </motion.div>
 
       <motion.div
-      initial='hidden'
-      whileInView='visible'
-      viewport={{ once: true }}
-      variants={inViewVariants}
-      className='flex   flex-col lg:flex-row justify-center mb-[150px]  px-[20px]'>
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: true }}
+        variants={inViewVariants}
+        className='flex   flex-col lg:flex-row justify-center  lg:mb-[150px]  px-[20px]'
+      >
         <div className='lg:w-[438px] '>
           <h3 className='text-[48px] mb-[27px]'>FAQ</h3>
           <p className='w-[274px] text-[16px] '>
@@ -387,8 +326,11 @@ export default function Home() {
         </div>
         <div className=''>
           {faq.map(({ q, a }, i) => (
-            <div className='h-[88px] items-center  flex border-t-[1px] first:border-t-0 ' key={i}>
-              <h3 className=' text-[15px] lg:text-[24px] font-medium  w-[768px] relative  '>
+            <div
+              className='h-[88px] items-center  flex border-t-[1px] first:border-t-0 '
+              key={i}
+            >
+              <h3 className=' text-[15px] lg:text-[24px] font-medium w-full lg:w-[768px] relative  '>
                 {
                   <AiOutlinePlusCircle className='absolute right-0 top-[5px] ' />
                 }
