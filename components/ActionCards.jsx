@@ -55,10 +55,7 @@ function ActionCards({ inViewVariants }) {
         <button className='animate-pulse py-[5px]  bg-white text-black rounded-full font-bold px-[10px]   flex items-center justify-center text-[15px] border-white  mb-[30px] '>
           Apply
         </button>
-        </div>
-
-
-        <div>
+        
 
         <h2 className='text-[30px] font-bold text-[#03326B] mb-[41px]'>
           Apply for KOL

@@ -6,7 +6,7 @@ function Info({name, details, img}) {
     <div className="flex flex-col lg:flex-row items-center">
         <div className="w-[144px] h-[144px] relative">
 
-        <Image src={img} fill className="object-cover" alt="info-card" />
+        <Image src={img} fill className={`object-cover  ${img == "/object-4.webp" && "scale-[1.2]"}`} alt="info-card" />
         </div>
         <div className="flex flex-col h-[94px] ">
         <h3 className="leading-[110%] text-[48px] text-black   ">

@@ -22,9 +22,11 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import LoadingOverlay from "../components/LoadingOverlay";
 import ActionCards from "./../components/ActionCards";
+import FAQ from './../components/FAQ';
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(-1)
   // imgs
   const imgs = ["/meadow-card.svg", "/project1.png", "/project2.png"];
   const actionCards = [{ title: "Apply for IDO" }, "/action-card-2.png"];
@@ -53,28 +55,28 @@ export default function Home() {
 
   const faq = [
     {
-      q: "Is there a free trial available?",
-      a: "Main cryptocurrencies and blockchains are here: BTC, ETH, and USDT.With Bitcoin, Ethereum, Binance Smart Chain, Polygon supported.",
+      q: "When will the full launch of the project take place?",
+      a: "Q2/Early Q3 of 2023 depending on when SUI Mainnet Launches \n (we will launch the same week that SUI launches)",
     },
     {
-      q: "Can I change my plan later?",
-      a: "Main cryptocurrencies and blockchains are here: BTC, ETH, and USDT.With Bitcoin, Ethereum, Binance Smart Chain, Polygon supported.",
+      q: " What’s the benefit of having Legend role?",
+      a: "Legend Roles are very limited but have the absolute best benefits for our community members: \n \n- Automatic whitelist for private round \n- Exclusive private channel \n- Eligble to participate in any contest or giveaways \n- More allocation in the private round \n- Possible automatic whitelist opportunities for other launches \n \n More details : https://meadow.gitbook.io/docs/tutorial/crew-3 )",
     },
     {
-      q: "What is your cancellation policy?",
-      a: "Main cryptocurrencies and blockchains are here: BTC, ETH, and USDT.With Bitcoin, Ethereum, Binance Smart Chain, Polygon supported.",
+      q: "Will it support other wallets and chains?",
+      a: "Yes, Meadow is a multi-chain launchpad and will be bridging to other chains starting with SUI",
     },
     {
-      q: "Can other info be added to an invoice?",
-      a: "Main cryptocurrencies and blockchains are here: BTC, ETH, and USDT.With Bitcoin, Ethereum, Binance Smart Chain, Polygon supported.",
+      q: "What are the first projects that are going to launch on Meadow?",
+      a: "Gaming projects and AI",
     },
     {
-      q: "How does billing work?",
-      a: "Main cryptocurrencies and blockchains are here: BTC, ETH, and USDT.With Bitcoin, Ethereum, Binance Smart Chain, Polygon supported.",
+      q: "How many token will  be available for the team?",
+      a: " See here on our Gitbook for detailed Tokenomics \n https://meadow.gitbook.io/docs/tokenomics",
     },
     {
-      q: "How do I change my account email?",
-      a: "Main cryptocurrencies and blockchains are here: BTC, ETH, and USDT.With Bitcoin, Ethereum, Binance Smart Chain, Polygon supported.",
+      q: "What insurance claims are set for each level?",
+      a: "Diamond: 30% \n Gold 15% \n See for more details: https://meadow.gitbook.io/docs/insurance",
     },
   ];
 
@@ -320,25 +322,13 @@ export default function Home() {
       >
         <div className='lg:w-[438px] '>
           <h3 className='text-[48px] mb-[27px]'>FAQ</h3>
-          <p className='w-[274px] text-[16px] '>
+          <p className='w-[274px] text-[16px] font-bold '>
             Everything you need to know about the product and billing.
           </p>
         </div>
-        <div className=''>
+        <div className="pt-[40px]">
           {faq.map(({ q, a }, i) => (
-            <div
-              className='h-[88px] items-center  flex border-t-[1px] first:border-t-0 '
-              key={i}
-            >
-              <h3 className=' text-[15px] lg:text-[24px] font-medium w-full lg:w-[768px] relative  '>
-                {
-                  <AiOutlinePlusCircle className='absolute right-0 top-[5px] ' />
-                }
-
-                {q}
-              </h3>
-              {/* <p>{a}</p> */}
-            </div>
+            <FAQ a={a} q={q}  id={i} setIsOpen={setIsOpen} isOpen={isOpen === i} key={i}/>
           ))}
         </div>
       </motion.div>
