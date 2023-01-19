@@ -29,7 +29,7 @@ export default function Home() {
   const [isOpen, setIsOpen] = useState(-1);
   // imgs
   const imgs = ["/meadow-card.svg", "/project1.png", "/project2.png"];
-  const actionCards = [{ title: "Apply for IDO" }, "/action-card-2.png"];
+  
   // refs
   const homeRef = useRef(null);
   const projectRef = useRef(null);
