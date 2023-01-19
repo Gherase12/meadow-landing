@@ -22,11 +22,11 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import LoadingOverlay from "../components/LoadingOverlay";
 import ActionCards from "./../components/ActionCards";
-import FAQ from './../components/FAQ';
+import FAQ from "./../components/FAQ";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
-  const [isOpen, setIsOpen] = useState(-1)
+  const [isOpen, setIsOpen] = useState(-1);
   // imgs
   const imgs = ["/meadow-card.svg", "/project1.png", "/project2.png"];
   const actionCards = [{ title: "Apply for IDO" }, "/action-card-2.png"];
@@ -34,6 +34,16 @@ export default function Home() {
   const homeRef = useRef(null);
   const projectRef = useRef(null);
   const teamRef = useRef(null);
+  //team info
+  const teamInfo = [
+    "Navid is the Chief Marketing Officer at Meadow. In addition to being the CEO of the Persian Army, he has served as a consultant for Kommunitas.net and marketing leader zincopad.app. He has over five years of expertise in crypto and ties to the most influential individuals. Exposure and strategic partners are essential, and Navid's experience will expedite Meadow's expansion.",
+    "Ken has six years of crypto experience and is the Advisor & Growth specialist at Meadow. He is the Founder of Cryptonewsline, CO-Founder of Celestial Ventures, and Founder of Altbase. He previously worked with the famed boxer Manny Paquio and operated his own enterprises with great success. Ken built a network of over one hundred thousand followers and implemented effective marketing methods that have helped him scale his businesses.",
+    "Rene van Dijk will also be a gaming advisor for Meadow, he is a Blockchain specialist, web3 game manager, six-year experience in blockchain technology along with a long history of helping startups and new projects to grow bigger. Rene's main goal is to change the future of gaming by fixing the gap between web3 and the traditional gaming industry by helping companies to produce high-quality web3 games. Skills which have been obtained include Web3 gaming, Game development management, Blockchain technology, Marketing, Product Launch and strategy, background CEO Designton AG Game Studio, Swiss, CEO of Xdroids, COO Fox Gaming.",
+    "Tommi Karjalainen has joined Meadow as a gaming advisor, an overview of Tommi consists of being a Game Director, Senior Designer Over 14 years of experience in UX, and visual design for digital services and applications. Have been working across a huge range of different brands and companies around the globe. Currently developing a game exclusively for Nintendo with the top talents. A passionate gamer since 1990 and have a wide knowledge of the game industry. Skills obtained include Visual design, Game design, UX, Quality and usability testing, 3D modeling, IOS, Android, Nintendo ecosystem. Currently a CEO, Game Director Designton Game Studios, Finland Senior Designer, Consultant Futurice",
+    "Game developer for over 4 years with solid experience in team management and coordination of projects with over 50 million installs. All of the games are published on the Play Store and App Store. Lately he's been working on blockchain integration and development of projects that rely on Web3.",
+    "Hamza is part of the legal team for Meadow, with regulations kicking in, it is important to stay within the regulatory framework, Hamza will make sure that Meadow is conducting a smooth KYC/KYB procedure with start-ups and our partners. He has previously worked at Giant Group as a Corporate Legal Advisor and will validate projects through critical inspection.",
+    "Sami is the Strategic Coordinator and Advisor at Meadow. Additionally, he is the founder and CEO of Celestial Ventures. Sami, who holds a bachelor's degree in business, has over five years of expertise in crypto, having worked on tier 1 deals, raising over $5,000,000 for start-ups, and has consulted numerous projects. With Sami's knowledge, the team will ensure that Meadow launches the best projects on Sui"
+  ]
   // imfo
   const info = [
     {
@@ -91,6 +101,7 @@ export default function Home() {
     hidden: { opacity: 0, y: 200 },
     transition: { delay: 4, duration: 2 },
   };
+
 
   return (
     <div className='lg:p-[20px] overflow-hidden relative'>
@@ -299,14 +310,21 @@ export default function Home() {
           className='   flex   space-x-[15px] w-full  '
         >
           {[...Array(8)].map((m, i) => (
-            <SwiperSlide key={i}>
-              <div className=' w-[338px]  h-[351px] relative  lg:w-[538px] '>
-                <Image
-                  src={`/team/member-${i + 1}.svg`}
-                  fill
-                  className='object-contain shadow-lg rounded-[30px]'
-                  alt='team member'
-                />
+            <SwiperSlide key={i}  className="relative">
+              <div  class='flip-card w-[338px]  h-[351px]   lg:w-[538px] relative '>
+                <div class='flip-card-inner '>
+                  <div class='flip-card-front w-full h-full'>
+                  <Image
+                    src={`/team/member-${i + 1}.webp`}
+                    fill
+                    className='object-contain lg:shadow-lg lg:rounded-[30px]'
+                    alt='team member'
+                  />
+                  </div>
+                  <div class='flip-card-back w-[338px] scrollbar-hide h-[200px] top-[70px] lg:top-0 bg-blue-1 lg:h-[345px]   lg:w-[538px] rounded-[20px] lg:rounded-[30px] text-white text-[13px] lg:text-[15px] lg:p-[30px] p-[15px] font-bold overflow-y-scroll'>
+                    {teamInfo[i]}
+                  </div>
+                </div>
               </div>
             </SwiperSlide>
           ))}
@@ -326,9 +344,16 @@ export default function Home() {
             Everything you need to know about the product and billing.
           </p>
         </div>
-        <div className="pt-[40px]">
+        <div className='pt-[40px]'>
           {faq.map(({ q, a }, i) => (
-            <FAQ a={a} q={q}  id={i} setIsOpen={setIsOpen} isOpen={isOpen === i} key={i}/>
+            <FAQ
+              a={a}
+              q={q}
+              id={i}
+              setIsOpen={setIsOpen}
+              isOpen={isOpen === i}
+              key={i}
+            />
           ))}
         </div>
       </motion.div>
