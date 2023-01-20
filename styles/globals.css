@@ -203,3 +203,9 @@ scrolled {
     bottom: 100%;
   }
 }
+
+
+
+.custom-gradient {
+    background: linear-gradient(226.46deg, rgba(255, 255, 255, 0.87) 2.67%, rgba(255, 255, 255, 0.24) 74.36%);
+}

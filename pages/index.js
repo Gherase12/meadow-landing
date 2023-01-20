@@ -4,17 +4,10 @@ import { BsTwitter } from "react-icons/bs";
 import { FaDiscord } from "react-icons/fa";
 import {
   AiOutlineInstagram,
-  AiOutlinePlusCircle,
-  AiOutlineArrowRight,
-  AiOutlineMinusCircle,
-} from "react-icons/ai";
-import IdoCard from "../components/IdoCard";
-import Info from "./../components/Info";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
 
-import "swiper/css";
-import "swiper/css/pagination";
+} from "react-icons/ai";
+
+
 import Nav from "../components/Nav";
 import { motion } from "framer-motion";
 
@@ -22,11 +15,16 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import LoadingOverlay from "../components/LoadingOverlay";
 import ActionCards from "./../components/ActionCards";
-import FAQ from "./../components/FAQ";
+
+import TeamSection from "../components/TeamSection";
+import FaqSection from './../components/FaqSection';
+import HeroSection from './../components/HeroSection';
+import PrivateRoundSection from "../components/PrivateRoundSection";
+import BuildToProtectSection from "../components/BuildToProtectSection";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
-  const [isOpen, setIsOpen] = useState(-1);
+  
   // imgs
   const imgs = ["/meadow-card.svg", "/project1.png", "/project2.png"];
   
@@ -35,60 +33,10 @@ export default function Home() {
   const projectRef = useRef(null);
   const teamRef = useRef(null);
   //team info
-  const teamInfo = [
-    "Navid is the Chief Marketing Officer at Meadow. In addition to being the CEO of the Persian Army, he has served as a consultant for Kommunitas.net and marketing leader zincopad.app. He has over five years of expertise in crypto and ties to the most influential individuals. Exposure and strategic partners are essential, and Navid's experience will expedite Meadow's expansion.",
-    "Ken has six years of crypto experience and is the Advisor & Growth specialist at Meadow. He is the Founder of Cryptonewsline, CO-Founder of Celestial Ventures, and Founder of Altbase. He previously worked with the famed boxer Manny Paquio and operated his own enterprises with great success. Ken built a network of over one hundred thousand followers and implemented effective marketing methods that have helped him scale his businesses.",
-    "Rene van Dijk will also be a gaming advisor for Meadow, he is a Blockchain specialist, web3 game manager, six-year experience in blockchain technology along with a long history of helping startups and new projects to grow bigger. Rene's main goal is to change the future of gaming by fixing the gap between web3 and the traditional gaming industry by helping companies to produce high-quality web3 games. Skills which have been obtained include Web3 gaming, Game development management, Blockchain technology, Marketing, Product Launch and strategy, background CEO Designton AG Game Studio, Swiss, CEO of Xdroids, COO Fox Gaming.",
-    "Tommi Karjalainen has joined Meadow as a gaming advisor, an overview of Tommi consists of being a Game Director, Senior Designer Over 14 years of experience in UX, and visual design for digital services and applications. Have been working across a huge range of different brands and companies around the globe. Currently developing a game exclusively for Nintendo with the top talents. A passionate gamer since 1990 and have a wide knowledge of the game industry. Skills obtained include Visual design, Game design, UX, Quality and usability testing, 3D modeling, IOS, Android, Nintendo ecosystem. Currently a CEO, Game Director Designton Game Studios, Finland Senior Designer, Consultant Futurice",
-    "Game developer for over 4 years with solid experience in team management and coordination of projects with over 50 million installs. All of the games are published on the Play Store and App Store. Lately he's been working on blockchain integration and development of projects that rely on Web3.",
-    "Hamza is part of the legal team for Meadow, with regulations kicking in, it is important to stay within the regulatory framework, Hamza will make sure that Meadow is conducting a smooth KYC/KYB procedure with start-ups and our partners. He has previously worked at Giant Group as a Corporate Legal Advisor and will validate projects through critical inspection.",
-    "Sami is the Strategic Coordinator and Advisor at Meadow. Additionally, he is the founder and CEO of Celestial Ventures. Sami, who holds a bachelor's degree in business, has over five years of expertise in crypto, having worked on tier 1 deals, raising over $5,000,000 for start-ups, and has consulted numerous projects. With Sami's knowledge, the team will ensure that Meadow launches the best projects on Sui"
-  ]
-  // imfo
-  const info = [
-    {
-      name: "1.4M tokens",
-      details: "Initial circulating supply",
-      img: "/object-4.webp",
-    },
-    {
-      name: "$0,10",
-      details: "Private Price",
-      img: "/object-5.webp",
-    },
-    {
-      name: "$155,000",
-      details: "Initial Marketcap",
-      img: "/object-6.webp",
-    },
-  ];
+  
+  
 
-  const faq = [
-    {
-      q: "When will the full launch of the project take place?",
-      a: "Q2/Early Q3 of 2023 depending on when SUI Mainnet Launches \n (we will launch the same week that SUI launches)",
-    },
-    {
-      q: " What’s the benefit of having Legend role?",
-      a: "Legend Roles are very limited but have the absolute best benefits for our community members: \n \n- Automatic whitelist for private round \n- Exclusive private channel \n- Eligble to participate in any contest or giveaways \n- More allocation in the private round \n- Possible automatic whitelist opportunities for other launches \n \nMore details: ",
-    },
-    {
-      q: "Will it support other wallets and chains?",
-      a: "Yes, Meadow is a multi-chain launchpad and will be bridging to other chains starting with SUI",
-    },
-    {
-      q: "What are the first projects that are going to launch on Meadow?",
-      a: "Gaming projects and AI",
-    },
-    {
-      q: "How many token will  be available for the team?",
-      a: " See here on our Gitbook for detailed Tokenomics \n ",
-    },
-    {
-      q: "What insurance claims are set for each level?",
-      a: "Diamond: 30% \n Gold 15% \n See for more details: ",
-    },
-  ];
+  
 
   // framer motion variants
   const orizontalVariants = {
@@ -119,244 +67,23 @@ export default function Home() {
         setLoading={setLoading}
       />
       {/* header */}
-      <div
-        ref={homeRef}
-        className='mb-[150px] lg:rounded-t-[40px] lg:rounded-b-[70px]  relative background-gradient   w-full h-[600px] lg:h-[800px] lg:p-[40px] z-10 pt-[30px]  '
-      >
-        {/* images */}
-
-        <div className='absolute w-[150px] h-[150px] bottom-[60px] right-0  lg:w-[822px] lg:h-[822px] lg:right-[280px] lg:top-[270px] lg:scale-[1.2] z-30 '>
-          <Image src={"/object-1.webp"} fill alt='object-1' />
-        </div>
-
-        <div className='absolute lg:w-[261px] w-[100px] h-[100px]  top-0  right-[100px]  lg:scale-[1.6] lg:h-[261px] lg:right-[365px] lg:top-[101px]  z-30 '>
-          <Image src={"/object-2.webp"} fill alt='object-2' />
-        </div>
-        <div className='absolute w-[120px] h-[120px] -right-[20px] top-[180px]   lg:w-[432px]  lg:h-[432px] lg:-right-[100px] lg:top-[142px]  z-30 '>
-          <Image
-            src={"/object-3.webp"}
-            fill
-            alt='object-3'
-            className='object-contain'
-          />
-        </div>
-        {/* nav */}
-
-        {/* h1 */}
-        <motion.h1
-          initial='hidden'
-          animate='visible'
-          variants={orizontalVariants}
-          className='absolute  z-40 text-white leading-[110%] top-[90px]  lg:top-[154px] left-[30px] lg:left-[152px] w-[80vw]  lg:w-[785px] lg:h-[243px] text-[30px] md:text-[50px] lg:text-[74px] font-bold '
-        >
-          The Next Generation Web 3.0 Multichain Launchpad
-        </motion.h1>
-        {/* h2 */}
-        <motion.h2
-          initial='hidden'
-          animate='visible'
-          variants={orizontalVariants}
-          className='absolute text-white top-[275px]  h-[210px] text-ellipsis overflow-hidden lg:top-[432px] lg:left-[152px] text-[12px] lg:text-[16px] leading-[160%] w-[70vw]  lg:w-[702px] font-normal left-[30px] z-40'
-        >
-          Built for the next generation of users, Meadow will Incubate and
-          launch the most anticipated projects on the Sui Network. Meadow&apos;s
-          team consists of veterans and partners who bring years of qualified
-          experience in the incubation space which puts us far ahead of our
-          competition.
-        </motion.h2>
-        {/* buttons */}
-        <div className='flex absolute bottom-[30px] scale-[0.6] lg:scale-[1]  lg:bottom-[100px] -left-[30px] lg:left-[152px] space-x-[20px] z-40'>
-          <Link
-            href='https://app.meadowlaunch.com/'
-            onClick={() => setLoading(true)}
-          >
-            <button className='bg-white text-[18px]  shadow-lg text-black w-[187px] h-[56px] rounded-full '>
-              Dashboard{" "}
-            </button>
-          </Link>
-          <div className='text-white text-[40px] space-x-[10px] flex items-center'>
-            <Link href='https://twitter.com/meadowlaunch'>
-              <BsTwitter />
-            </Link>
-            <Link href='https://t.co/FLNKZU3ujp'>
-              <FaDiscord />
-            </Link>
-            <Link href='https://www.instagram.com/meadow_launch/?hl=ro'>
-              <AiOutlineInstagram />
-            </Link>
-          </div>
-        </div>
-      </div>
-      {/* IDO's */}
-
-      {/* <motion.div
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true }}
-        variants={inViewVariants}
-        ref={projectRef}
-        className=' mb-[50px] lg:mb-[198px] '
-      >
-        <h3 className='leading-[110%] lg:ml-0 text-[48px] text-black ml-[20px]  lg:pl-[180px] mb-0 lg:mb-[52px] '>
-          Upcoming IDOs
-        </h3>
-        <div className='hidden  lg:flex h-[543px]   items-center justify-center space-x-[40px] '>
-          {imgs.map((i) => (
-            <IdoCard img={i} key={i} />
-          ))}
-        </div>
-      </motion.div>
-      <Swiper
-        slidesPerView={"auto"}
-        spaceBetween={30}
-        pagination={{
-          dynamicBullets: true,
-        }}
-        modules={[Pagination]}
-        className='  lg:hidden  flex'
-      >
-        {imgs.map((i) => (
-          <SwiperSlide key={i}>
-            <IdoCard img={i} />
-          </SwiperSlide>
-        ))}
-      </Swiper> */}
-
-      {/* Upcoming Game IDOs */}
-      {/* <motion.div
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true }}
-        variants={inViewVariants}
-        className='mb-[50px] lg:mb-[198px]'
-      >
-        <h3 className='leading-[110%] text-[48px] lg:ml-0 text-black lg:pl-[180px] mb-[52px] ml-[20px]'>
-          Upcoming Game IDOs
-        </h3>
-        <div className=' flex flex-col lg:flex-row  justify-center lg:space-x-[60px]  '>
-          {[1, 2].map((n, i) => (
-            <div
-              className='relative w-full h-[250px] lg:w-[650px] lg:h-[406px]   '
-              key={i}
-            >
-              <Image
-                src={`/game-card-${i + 1}.svg`}
-                fill
-                calssName='object-cover'
-                alt='game-card'
-              />
-            </div>
-          ))}
-        </div>
-      </motion.div> */}
+      <HeroSection homeRef={homeRef} orizontalVariants={orizontalVariants} />
+     
+      
       {/* privete round */}
-      <motion.div
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true }}
-        variants={inViewVariants}
-        className='flex   justify-center lg:space-x-[76px] mb-[50px] lg:mb-[152px] flex-col lg:flex-row space-y-[100px] lg:space-y-0'
-      >
-        <div className=''>
-          <h3 className='leading-[110%] lg:text-[48px] text-black mb-[30px]  text-[30px] lg:ml-0 ml-[20px] w-[300px] lg:w-[426px] h-[106px]'>
-            Private Round & Token Information
-          </h3>
-          <p className=' h-[130px] leading-[160%] text-[16px] lg:ml-0 ml-[20px]  max-w-[426px]   font-normal'>
-            The Private Round will be priced at $0.10 and the Public Round will
-            be priced at $0.20. The private round will be open for participants
-            but there will be a set of requirements that must be completed in
-            order to get whitelisted for it, check out the docs for more
-            information.
-          </p>
-        </div>
+      <PrivateRoundSection />
 
-        <div className='  flex flex-col space-y-[60px] '>
-          {info.map(({ name, details, img }, i) => (
-            <Info name={name} details={details} img={img} key={i} />
-          ))}
-        </div>
-      </motion.div>
+      <BuildToProtectSection inViewVariants={inViewVariants} />
 
       {/* action cards */}
       <ActionCards inViewVariants={inViewVariants} />
 
       {/* team */}
 
-      <motion.h3
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true }}
-        variants={orizontalVariants}
-        ref={teamRef}
-        className='leading-[110%] lg:ml-0 mx-auto text-[48px] text-black  lg:text-[60px]   lg:mb-[52px] w-full lg:w-auto  text-center '
-      >
-        Our Team
-      </motion.h3>
-      {/* slider */}
-      <motion.div
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true }}
-        variants={inViewVariants}
-        className=' max-w-[1500px] mx-auto  mb-[50px] lg:mb-[100px] '
-      >
-        <Swiper
-          slidesPerView={"auto"}
-          spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-          className='   flex   space-x-[15px] w-full  '
-        >
-          {[...Array(8)].map((m, i) => (
-            <SwiperSlide key={i}  className="relative">
-              <div  class='flip-card w-[338px]  h-[351px]   lg:w-[538px] relative '>
-                <div class='flip-card-inner '>
-                  <div class='flip-card-front w-full h-full'>
-                  <Image
-                    src={`/team/member-${i + 1}.webp`}
-                    fill
-                    className='object-contain lg:shadow-lg lg:rounded-[30px]'
-                    alt='team member'
-                  />
-                  </div>
-                  <div class='flip-card-back w-[338px] scrollbar-hide h-[200px] top-[70px] lg:top-0 bg-blue-1 lg:h-[345px]   lg:w-[538px] rounded-[20px] lg:rounded-[30px] text-white text-[13px] lg:text-[15px] lg:p-[30px] p-[15px] font-bold overflow-y-scroll'>
-                    {teamInfo[i]}
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </motion.div>
+   <TeamSection teamRef={teamRef} orizontalVariants={orizontalVariants} inViewVariants={inViewVariants}/>
+   <FaqSection inViewVariants={inViewVariants} />
 
-      <motion.div
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true }}
-        variants={inViewVariants}
-        className='flex   flex-col lg:flex-row justify-center  lg:mb-[150px]  px-[20px]'
-      >
-        <div className='lg:w-[438px] '>
-          <h3 className='text-[48px] mb-[27px]'>FAQ</h3>
-          <p className='w-[274px] text-[16px] font-bold '>
-            Everything you need to know about the product and billing.
-          </p>
-        </div>
-        <div className='pt-[40px]'>
-          {faq.map(({ q, a }, i) => (
-            <FAQ
-              a={a}
-              q={q}
-              id={i}
-              setIsOpen={setIsOpen}
-              isOpen={isOpen === i}
-              key={i}
-            />
-          ))}
-        </div>
-      </motion.div>
+      
       {/* join section */}
       <motion.div
         initial='hidden'
