@@ -21,6 +21,7 @@ import FaqSection from './../components/FaqSection';
 import HeroSection from './../components/HeroSection';
 import PrivateRoundSection from "../components/PrivateRoundSection";
 import BuildToProtectSection from "../components/BuildToProtectSection";
+import DashboardBtn from './../components/btn/DashboardBtn';
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -67,7 +68,7 @@ export default function Home() {
         setLoading={setLoading}
       />
       {/* header */}
-      <HeroSection homeRef={homeRef} orizontalVariants={orizontalVariants} />
+      <HeroSection homeRef={homeRef} orizontalVariants={orizontalVariants} setLoading={setLoading} />
      
       
       {/* privete round */}
@@ -107,14 +108,9 @@ export default function Home() {
           qualified experts who have trackrecord of success.
         </p>
         <div className='flex z-40 space-x-[20px] scale-[0.7] '>
-          <Link
-            href='https://app.meadowlaunch.com/'
-            onClick={() => setLoading(true)}
-          >
-            <button className='bg-white text-black w-[187px] h-[56px] rounded-full z-40 '>
-              Dashboard
-            </button>
-          </Link>
+         
+          <DashboardBtn setLoading={setLoading} />
+          
           <button className=' border-white   text-white w-[187px] h-[56px] rounded-full z-40 '>
             Apply now
           </button>

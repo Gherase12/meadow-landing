@@ -6,12 +6,12 @@ function PrivateRoundSection({inViewVariants}) {
     // imfo
   const info = [
     {
-      name: "1.4M tokens",
+      name: "1.3M tokens",
       details: "Initial circulating supply",
       img: "/object-4.webp",
     },
     {
-      name: "$0,10",
+      name: "$0.10",
       details: "Private Price",
       img: "/object-5.webp",
     },
@@ -35,7 +35,7 @@ function PrivateRoundSection({inViewVariants}) {
           </h3>
           <p className=' h-[130px] leading-[160%] text-[16px] lg:ml-0 ml-[20px]  max-w-[426px]   font-normal'>
             The Private Round will be priced at $0.10 and the Public Round will
-            be priced at $0.20. The private round will be open for participants
+            be priced at $0.12. The private round will be open for participants
             but there will be a set of requirements that must be completed in
             order to get whitelisted for it, check out the docs for more
             information.

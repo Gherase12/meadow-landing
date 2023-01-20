@@ -4,16 +4,17 @@ import { motion } from 'framer-motion';
 import Link  from 'next/link';
 import { BsTwitter } from "react-icons/bs";
 import { FaDiscord } from "react-icons/fa";
+import DashboardBtn from './btn/DashboardBtn';
 import {
     AiOutlineInstagram,
     
   } from "react-icons/ai";
 
-function HeroSection({homeRef, orizontalVariants}) {
+function HeroSection({homeRef, orizontalVariants, setLoading}) {
   return (
     <div
     ref={homeRef}
-    className='mb-[150px] lg:mb-[271px] lg:rounded-t-[40px] border-2 lg:rounded-b-[70px]  relative background-gradient   w-full h-[600px] lg:h-[800px] lg:p-[40px] z-10 pt-[30px]  '
+    className='mb-[150px] lg:mb-[271px] lg:rounded-t-[40px] wwe lg:rounded-b-[70px]  relative background-gradient   w-full h-[600px] lg:h-[800px] lg:p-[40px] z-10 pt-[30px]  '
   >
     {/* images */}
 
@@ -58,14 +59,7 @@ function HeroSection({homeRef, orizontalVariants}) {
     </motion.h2>
     {/* buttons */}
     <div className='flex absolute bottom-[30px] scale-[0.6] lg:scale-[1]  lg:bottom-[100px] -left-[30px] lg:left-[152px] space-x-[20px] z-40'>
-      <Link
-        href='https://app.meadowlaunch.com/'
-        onClick={() => setLoading(true)}
-      >
-        <button className='bg-white text-[18px]  shadow-lg text-black w-[187px] h-[56px] rounded-full '>
-          Dashboard{" "}
-        </button>
-      </Link>
+    <DashboardBtn setLoading={setLoading} />
       <div className='text-white text-[40px] space-x-[10px] flex items-center'>
         <Link href='https://twitter.com/meadowlaunch'>
           <BsTwitter />

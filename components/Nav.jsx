@@ -4,6 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { RiCloseFill } from "react-icons/ri";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import DashboardBtn from "./btn/DashboardBtn";
 
 function Nav({ homeRef, projectRef, teamRef, setLoading }) {
   const [open, setOpen] = useState(false);
@@ -73,11 +74,7 @@ function Nav({ homeRef, projectRef, teamRef, setLoading }) {
             <li className='cursor-pointer'>Docs</li>
           </Link>
         </ul>
-        <Link href='https://app.meadowlaunch.com/' onClick={()=>setLoading(true)}>
-          <button className='bg-white text-black w-[187px] h-[56px] rounded-full '>
-            Dashboard
-          </button>
-        </Link>
+        <DashboardBtn setLoading={setLoading} />
       </div>
       <GiHamburgerMenu
         onClick={() => setOpen(true)}
