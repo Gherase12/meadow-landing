@@ -16,9 +16,7 @@ function BuildToProtectSection({ inViewVariants }) {
             Built to protect
           </h2>
           <p className=' text-[15px] px-[20px] xl:px-0  xl:text-[20px] max-w-[620px]  leading-[160%] text-center '>
-            Investors come first, see how you can benefit from our insurance
-            pool, uniquely designed to drive the price of our token up and most
-            importantly protect our users.
+          Investors come first, see how you can benefit from our insurance pool, uniquely designed to drive the price of our token up and most importantly protect our users.
           </p>
         </div>
 
@@ -49,9 +47,7 @@ function BuildToProtectSection({ inViewVariants }) {
             Stake
           </h3>
           <p className='text-[20px] leading-[160%] max-w-[455px] text-center xl:text-start '>
-            To foster transparency in the meadow ecosystem, take a look at how
-            Meadow plans on keeping its ecosystem’s economics functional and
-            beneficial for both the host and builders
+          Stake your tokens and earn rewards! You can choose how long you want to lock up your tokens for, the longer the more rewards you will earn.
           </p>
         </motion.div>
 
@@ -68,7 +64,7 @@ function BuildToProtectSection({ inViewVariants }) {
           Sustainability 
           </h3>
           <p className='text-[20px] leading-[160%] max-w-[455px] text-center xl:text-start '>
-          To foster transparency in the meadow ecosystem, take a look at how Meadow plans on keeping its ecosystem’s economics functional and beneficial for both the host and builders
+          To foster transparency in the meadow ecosystem, take a look at how Meadow plans on keeping its ecosystem’s economics functional and beneficial for both the host and builders.
           </p>
         </motion.div>
       </div>

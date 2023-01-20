@@ -91,14 +91,16 @@ export default function Home() {
         whileInView='visible'
         viewport={{ once: true }}
         variants={inViewVariants}
-        className='h-[440px]  max-w-[1500px] mx-auto relative flex justify-center items-center  flex-col space-y-[30px]'
+        className='h-[440px] overflow-hidden max-w-[1500px] mx-auto relative flex justify-center items-center  flex-col space-y-[30px] footer-background  lg:rounded-[40px]'
       >
-        <Image
-          src='/join-background.webp'
-          className='object-cover lg:rounded-t-[40px] z-10 '
-          fill
-          alt='join-card'
-        />
+        {/* object 1 */}
+       <div className="absolute w-[690px] h-[690px]  scale-[0.2] md:scale-[0.5] lg:scale-[1] -left-[350px] -bottom-[250px] ">
+          <Image src="/object-1.webp" fill className="object-cover "/>
+       </div>
+       {/* object-2 */}
+       <div className="absolute w-[300px] h-[300px] scale-[0.2] md:scale-[0.5] lg:scale-[1] -right-[120px] lg:right-0 -bottom-[0px] ">
+          <Image src="/object-3.webp" fill className="object-cover"/>
+       </div>
         <h2 className='text-white lg:text-[60px] text-[40px] z-40 '>
           Join right now
         </h2>
@@ -107,11 +109,11 @@ export default function Home() {
           most scalable, safest Layer 1blockchain, with a team of highly
           qualified experts who have trackrecord of success.
         </p>
-        <div className='flex z-40 space-x-[20px] scale-[0.7] '>
+        <div className='flex z-40 space-x-[20px] scale-[0.7] lg:scale-[1] '>
          
           <DashboardBtn setLoading={setLoading} />
           
-          <button className=' border-white   text-white w-[187px] h-[56px] rounded-full z-40 '>
+          <button className=' border-white   text-white w-[187px] h-[56px] rounded-full z-40 border-[1px] '>
             Apply now
           </button>
         </div>

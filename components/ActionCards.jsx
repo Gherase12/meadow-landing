@@ -45,10 +45,7 @@ function ActionCards({ inViewVariants }) {
             Apply for IDO
           </h2>
           <p className='  text-[12px] text-[#3E81A2] font-bold mb-[30px]  max-w-[400px]'>
-            Meadow is always looking for the most creative game changing
-            projects, feel free to apply for an IDO on Meadow. Your project will
-            be critically vetted by our team of experts and if you are succesful
-            we will work with you to take your project to another level.
+          We are always on the lookout for creative and disruptive projects. Our team of experts will critically vet every submission, handpick the unique ones, and then work with their creators—taking the project to the next level.
           </p>
 
           <button className='animate-pulse py-[5px]  bg-white text-black rounded-full font-bold px-[10px]   flex items-center justify-center text-[15px] border-white  mb-[30px] '>
@@ -59,10 +56,7 @@ function ActionCards({ inViewVariants }) {
             Apply for KOL
           </h2>
           <p className=' text-[12px] text-[#3E81A2] font-bold mb-[30px]  max-w-[400px]'>
-            giAre you willing to put your social accounts to work? Do you want to
-            help put meadow out there to drive up our socials? We are working
-            side by side with meadow’s marketing army, and you’re welcome to be
-            a part of it. Join us and be part of the team!
+          Are you willing to put your social accounts to work? Do you want to help put meadow out there to drive up our socials? We are working side by side with meadow’s marketing army, and you’re welcome to be a part of it. Join us and be part of the team!
           </p>
           <button className='animate-pulse py-[5px] bg-white text-black rounded-full font-bold px-[10px]   flex items-center justify-center text-[15px] border-white  mb-[30px] '>
             Apply
@@ -79,14 +73,14 @@ function ActionCards({ inViewVariants }) {
             Apply for IDO
           </h2>
           <p className='w-[496px] h-[130px] text-[16px] text-[#3E81A2] font-bold mb-[65px]'>
-            We are always on the lookout for creative and disruptive projects.
-            Our team of experts will critically vet every submission, handpick
-            the unique ones, and then work with their creators—taking the
-            project to the next level.
+          We are always on the lookout for creative and disruptive projects. Our team of experts will critically vet every submission, handpick the unique ones, and then work with their creators—taking the project to the next level.
           </p>
-          <button className='border-[1px] rounded-full w-[64px] h-[64px] flex items-center justify-center text-[25px] border-white text-white '>
-            <AiOutlineArrowRight />
-          </button>
+          <button className=' relative   mb-[91px] learn-more pb-[10px] flex items-center text-[25px] border-white text-white '>
+            <span className='circle' aria-hidden='true'>
+                <span className='icon arrow'></span>
+              </span>
+              <span className='button-text  '>Apply</span>
+            </button>
           <Image
             src={"/action/object-1.webp"}
             className='absolute left-[206px] bottom-0'
@@ -114,18 +108,20 @@ function ActionCards({ inViewVariants }) {
             height={208}
           />
           <div className='flex justify-end w-full '>
-            <button className='border-[1px] rounded-full w-[64px] mb-[91px] h-[64px] flex items-center justify-center text-[25px] border-white text-white '>
-              <AiOutlineArrowRight />
+            <button className=' relative   mb-[91px] learn-more pb-[10px] flex items-center text-[25px] border-white text-white '>
+            <span className='circle' aria-hidden='true'>
+                <span className='icon arrow'></span>
+              </span>
+              <span className='button-text  '>Apply</span>
             </button>
           </div>
+
+         
           <h2 className='text-[48px] font-bold text-[#03326B] mb-[41px]'>
             Apply for KOL
           </h2>
           <p className='w-[486px] h-[130px] text-[16px] text-[#3E81A2] font-bold mb-[65px]'>
-            We create a Meadow marketing army. You can be part of our marketing
-            if you’re willing to put your social accounts to work. If you feel
-            you want to be part of the team and add value, we’d for sure love to
-            welcome you to the Meadow.
+          Are you willing to put your social accounts to work? Do you want to help put meadow out there to drive up our socials? We are working side by side with meadow’s marketing army, and you’re welcome to be a part of it. Join us and be part of the team!
           </p>
         </div>
       </div>

@@ -15,6 +15,13 @@
     0px 8px 18px rgba(0, 132, 255, 0.12), 0px 0px 0px rgba(0, 132, 255, 0.12);
 }
 
+
+.footer-background {
+  background: radial-gradient(108% 183.43% at 81.75% 60.49%, #B4E5FF 0%, #038AC8 66.35%, #0052A4 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 280px 112px rgba(153, 226, 255, 0.02), 0px 158px 95px rgba(153, 226, 255, 0.07), 0px 70px 70px rgba(153, 226, 255, 0.11), 0px 18px 39px rgba(153, 226, 255, 0.13), 0px 0px 0px rgba(153, 226, 255, 0.13);
+backdrop-filter: blur(10px);
+}
+
 @font-face {
   font-family: "Satoshi";
   src: url("/fonts/Satoshi-Variable.ttf") format("ttf");
@@ -247,4 +254,81 @@ scrolled {
 .btn:hover::after {
  transform: scaleX(1.4) scaleY(1.6);
  opacity: 0;
+}
+
+
+
+button.learn-more {
+ width: 12rem;
+ height: auto;
+}
+
+button.learn-more .circle {
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ position: relative;
+ display: block;
+ margin: 0;
+ width: 3rem;
+ height: 3rem;
+ background: #03326B;
+ border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon {
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ margin: auto;
+ background: #fff;
+}
+
+button.learn-more .circle .icon.arrow {
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ left: 0.625rem;
+ width: 1.125rem;
+ height: 0.125rem;
+ background: none;
+}
+
+button.learn-more .circle .icon.arrow::before {
+ position: absolute;
+ content: "";
+ top: -0.29rem;
+ right: 0.0625rem;
+ width: 0.625rem;
+ height: 0.625rem;
+ border-top: 0.125rem solid #fff;
+ border-right: 0.125rem solid #fff;
+ transform: rotate(45deg);
+}
+
+button.learn-more .button-text {
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ padding: 0.4rem 0;
+ margin: 0 0 0 1.85rem;
+ 
+ color: #03326B;
+ font-weight: 700;
+ line-height: 1.6;
+ text-align: center;
+ text-transform: uppercase;
+}
+
+button:hover .circle {
+ width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+ background: #fff;
+ transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+ color: #fff;
 }
