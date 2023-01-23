@@ -49,9 +49,9 @@ function TeamSection({teamRef, orizontalVariants, inViewVariants}) {
     >
       {[...Array(8)].map((m, i) => (
         <SwiperSlide key={i}  className="relative">
-          <div  class='flip-card w-[338px]  h-[351px]   lg:w-[538px] relative '>
-            <div class='flip-card-inner '>
-              <div class='flip-card-front w-full h-full'>
+          <div  className='flip-card w-[338px]  h-[351px]   lg:w-[538px] relative '>
+            <div className='flip-card-inner '>
+              <div className='flip-card-front w-full h-full'>
               <Image
                 src={`/team/member-${i + 1}.webp`}
                 fill
@@ -59,7 +59,7 @@ function TeamSection({teamRef, orizontalVariants, inViewVariants}) {
                 alt='team member'
               />
               </div>
-              <div class='flip-card-back w-[338px] scrollbar-hide h-[200px] top-[70px] lg:top-0 bg-blue-1 lg:h-[345px]   lg:w-[538px] rounded-[20px] lg:rounded-[30px] text-white text-[13px] lg:text-[15px] lg:p-[30px] p-[15px] font-bold overflow-y-scroll'>
+              <div className='flip-card-back w-[338px] scrollbar-hide h-[200px] top-[70px] lg:top-0 bg-blue-1 lg:h-[345px] team-font  lg:w-[538px] rounded-[20px] lg:rounded-[30px] text-black text-[13px] lg:text-[17px] lg:p-[30px] p-[15px] font-normal overflow-y-scroll'>
                 {teamInfo[i]}
               </div>
             </div>

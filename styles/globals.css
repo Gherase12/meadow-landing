@@ -32,6 +32,11 @@ backdrop-filter: blur(10px);
   font-style: normal;
 }
 
+
+.team-font{
+  font-family: 'Nunito Sans', sans-serif;
+}
+
 .rotation {
   transform: matrix(-0.64, -0.76, -0.76, 0.64, 0, 0);
 }

@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import DashboardBtn from "./btn/DashboardBtn";
 
-function Nav({ homeRef, projectRef, teamRef, setLoading }) {
+function Nav({ homeRef, applyRef, teamRef, setLoading }) {
   const [open, setOpen] = useState(false);
   const addStyle = ["background-gradient", "pb-[10px]"];
   const removeStyle = ["lg:pt-[40px]"];
@@ -59,10 +59,10 @@ function Nav({ homeRef, projectRef, teamRef, setLoading }) {
             Home
           </li>
           <li
-            onClick={() => scrollToElement(projectRef)}
+            onClick={() => scrollToElement(applyRef)}
             className='cursor-pointer'
           >
-            Project
+            Apply
           </li>
           <li
             onClick={() => scrollToElement(teamRef)}
@@ -101,10 +101,10 @@ function Nav({ homeRef, projectRef, teamRef, setLoading }) {
             Home
           </li>
           <li
-            onClick={() => scrollToElement(projectRef)}
+            onClick={() => scrollToElement(applyRef)}
             className='cursor-pointer'
           >
-            Project
+           Apply
           </li>
           <li
             onClick={() => scrollToElement(teamRef)}

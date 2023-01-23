@@ -1,21 +1,34 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  AiOutlineInstagram,
-  AiOutlinePlusCircle,
-  AiOutlineArrowRight,
-  AiOutlineMinusCircle,
-} from "react-icons/ai";
 
-function ActionCards({ inViewVariants }) {
+
+import { useState } from 'react'
+import ApplyModal from "./ApplyModal";
+
+
+function ActionCards({ inViewVariants, applyRef}) {
+  let [isOpen, setIsOpen] = useState(true)
+
+  const openModal = ()=>{
+     
+      setIsOpen(true)
+  }
+  const closeModal = ()=>{
+   
+      setIsOpen(false)
+  }
+  
   return (
     <motion.div
+    ref={applyRef}
       initial='hidden'
       whileInView='visible'
       viewport={{ once: true }}
       variants={inViewVariants}
+      
     >
+      
       {/* mobile design */}
       <div className='w-full relative lg:hidden bg-action-card-1 mb-[50px] p-[30px]  '>
         <Image
@@ -48,7 +61,7 @@ function ActionCards({ inViewVariants }) {
           We are always on the lookout for creative and disruptive projects. Our team of experts will critically vet every submission, handpick the unique ones, and then work with their creators—taking the project to the next level.
           </p>
 
-          <button className='animate-pulse py-[5px]  bg-white text-black rounded-full font-bold px-[10px]   flex items-center justify-center text-[15px] border-white  mb-[30px] '>
+          <button onClick={()=>setIsOpen(true)}  className='animate-pulse py-[5px]  bg-white text-black rounded-full font-bold px-[10px]   flex items-center justify-center text-[15px] border-white  mb-[30px] '>
             Apply
           </button>
 
@@ -58,7 +71,7 @@ function ActionCards({ inViewVariants }) {
           <p className=' text-[12px] text-[#3E81A2] font-bold mb-[30px]  max-w-[400px]'>
           Are you willing to put your social accounts to work? Do you want to help put meadow out there to drive up our socials? We are working side by side with meadow’s marketing army, and you’re welcome to be a part of it. Join us and be part of the team!
           </p>
-          <button className='animate-pulse py-[5px] bg-white text-black rounded-full font-bold px-[10px]   flex items-center justify-center text-[15px] border-white  mb-[30px] '>
+          <button onClick={()=>setIsOpen(true)} className='animate-pulse py-[5px] bg-white text-black rounded-full font-bold px-[10px]   flex items-center justify-center text-[15px] border-white  mb-[30px] '>
             Apply
           </button>
         </div>
@@ -75,7 +88,7 @@ function ActionCards({ inViewVariants }) {
           <p className='w-[496px] h-[130px] text-[16px] text-[#3E81A2] font-bold mb-[65px]'>
           We are always on the lookout for creative and disruptive projects. Our team of experts will critically vet every submission, handpick the unique ones, and then work with their creators—taking the project to the next level.
           </p>
-          <button className=' relative   mb-[91px] learn-more pb-[10px] flex items-center text-[25px] border-white text-white '>
+          <button onClick={(e)=>openModal(e)} className=' relative   mb-[91px] learn-more pb-[10px] flex items-center text-[25px] border-white text-white '>
             <span className='circle' aria-hidden='true'>
                 <span className='icon arrow'></span>
               </span>
@@ -107,12 +120,12 @@ function ActionCards({ inViewVariants }) {
             width={207}
             height={208}
           />
-          <div className='flex justify-end w-full '>
+          <div onClick={(e)=>openModal(e)}   className='flex justify-end w-full '>
             <button className=' relative   mb-[91px] learn-more pb-[10px] flex items-center text-[25px] border-white text-white '>
             <span className='circle' aria-hidden='true'>
                 <span className='icon arrow'></span>
               </span>
-              <span className='button-text  '>Apply</span>
+              <span className='button-text'>Apply</span>
             </button>
           </div>
 
@@ -125,6 +138,10 @@ function ActionCards({ inViewVariants }) {
           </p>
         </div>
       </div>
+
+
+      <ApplyModal isOpen={isOpen}  setIsOpen={setIsOpen} closeModal={closeModal} />
+      
     </motion.div>
   );
 }

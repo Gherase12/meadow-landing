@@ -22,6 +22,7 @@ import HeroSection from './../components/HeroSection';
 import PrivateRoundSection from "../components/PrivateRoundSection";
 import BuildToProtectSection from "../components/BuildToProtectSection";
 import DashboardBtn from './../components/btn/DashboardBtn';
+import ApplyModal from './../components/ApplyModal';
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -31,7 +32,7 @@ export default function Home() {
   
   // refs
   const homeRef = useRef(null);
-  const projectRef = useRef(null);
+  const applyRef = useRef(null);
   const teamRef = useRef(null);
   //team info
   
@@ -51,9 +52,10 @@ export default function Home() {
     transition: { delay: 4, duration: 2 },
   };
 
-
+  
   return (
     <div className='lg:p-[20px] overflow-hidden relative'>
+      
       {loading && <LoadingOverlay />}
       <Head>
         <title>Meadow home</title>
@@ -63,7 +65,7 @@ export default function Home() {
       </Head>
       <Nav
         homeRef={homeRef}
-        projectRef={projectRef}
+        applyRef={applyRef}
         teamRef={teamRef}
         setLoading={setLoading}
       />
@@ -77,7 +79,7 @@ export default function Home() {
       <BuildToProtectSection inViewVariants={inViewVariants} />
 
       {/* action cards */}
-      <ActionCards inViewVariants={inViewVariants} />
+      <ActionCards inViewVariants={inViewVariants} applyRef={applyRef}  />
 
       {/* team */}
 
@@ -132,18 +134,10 @@ export default function Home() {
             <AiOutlineInstagram />
           </Link>
         </div>
-        <Link href='/'>
-          <Image
-            src='/meadow-logo-black.svg'
-            className='ml-[50px] hidden xl:flex'
-            width={186}
-            height={58}
-            alt='meadow-logo'
-          />
-        </Link>
+       
         <li className='text-[10px] px-[10px] mb-[10px] lg:mb-0 flex justify-between space-x-[10px] lg:text-[14px] cursor-pointe  w-full xl:w-auto '>
           <ul>Privacy Policy</ul>
-          <ul>Teams of use</ul>
+          <ul>Terms of use</ul>
           <ul>Disclaimer</ul>
           <ul>Cookie Policy</ul>
         </li>
