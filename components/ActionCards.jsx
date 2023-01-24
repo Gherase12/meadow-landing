@@ -8,7 +8,7 @@ import ApplyModal from "./ApplyModal";
 
 
 function ActionCards({ inViewVariants, applyRef}) {
-  let [isOpen, setIsOpen] = useState(true)
+  let [isOpen, setIsOpen] = useState(false)
 
   const openModal = ()=>{
      
