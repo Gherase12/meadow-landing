@@ -105,7 +105,7 @@ export default function Home() {
         <p className='px-[10px] text-[16px] leading-[160%] text-white z-40 lg:w-[462px]  text-center '>
           Looking for the best launchpad for your crypto project? Contact us!
           Our premier incubation program offers resources and expertise to bring
-          your vision to reality. We can't wait to hear from you and take your
+          your vision to reality. We can&apos;t wait to hear from you and take your
           project to the next level.
         </p>
         <div className='flex z-40 space-x-[20px] scale-[0.7] lg:scale-[1] '>

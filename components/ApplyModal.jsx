@@ -169,9 +169,9 @@ function ApplyModal({ isOpen, closeModal, type }) {
                     {/* Project Name*/}
                     <div className="grid lg:grid-cols-2 gap-x-[50px]">
 
-                    {IDOfields.map(({name, field})=>(
+                    {IDOfields.map(({name, field},i)=>(
 
-                    <InputField name={name} field={field} register={register} errors={errors}/>
+                    <InputField key={i} name={name} field={field} register={register} errors={errors}/>
                     ))}
                     </div>
                    
@@ -189,8 +189,8 @@ function ApplyModal({ isOpen, closeModal, type }) {
 
                 <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
                   {
-                    KOLfields.map(({name, field})=>(
-                      <InputField name={name} field={field} register={register} errors={errors}/>
+                    KOLfields.map(({name, field}, i)=>(
+                      <InputField key={i} name={name} field={field} register={register} errors={errors}/>
                     ))
                   }
 
