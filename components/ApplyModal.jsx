@@ -1,9 +1,9 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { useForm } from "react-hook-form";
-import {  toast } from 'react-toastify';
-import emailjs from '@emailjs/browser';
-import InputField from './InputField';
+import { toast } from "react-toastify";
+import emailjs from "@emailjs/browser";
+import InputField from "./InputField";
 
 function ApplyModal({ isOpen, closeModal, type }) {
   const {
@@ -14,124 +14,123 @@ function ApplyModal({ isOpen, closeModal, type }) {
     formState: { errors },
   } = useForm();
 
-
   const notify = (message) => toast.success(message);
-
 
   const IDOfields = [
     {
-      name:"Project Name:",
+      name: "Project Name:",
       field: "pn",
     },
     {
-      name:"Discord:",
+      name: "Discord:",
       field: "disc",
     },
     {
-      name:"Twitter:",
+      name: "Twitter:",
       field: "Twitter",
     },
     {
-      name:"Telegram:",
+      name: "Telegram:",
       field: "tg",
     },
     {
-      name:"What is your website link?",
+      name: "What is your website link?",
       field: "web",
     },
     {
-      name:"Provide the link to your pitch deck:",
+      name: "Provide the link to your pitch deck:",
       field: "pitch",
     },
     {
-      name:"How much do you guys plan to raise in total?",
+      name: "How much do you guys plan to raise in total?",
       field: "raise",
     },
     {
-      name:"How much have you raised to this date? (Provide in USD)",
+      name: "How much have you raised to this date? (Provide in USD)",
       field: "araise",
     },
     {
-      name:"What is your initial market-cap?",
+      name: "What is your initial market-cap?",
       field: "mc",
     },
     {
-      name:"What is the vesting schedule for all rounds?",
+      name: "What is the vesting schedule for all rounds?",
       field: "vest",
     },
     {
-      name:"Who are your competitors?",
+      name: "Who are your competitors?",
       field: "comp",
     },
     {
-      name:"Share your Team socials links:",
+      name: "Share your Team socials links:",
       field: "team",
     },
     {
-      name:"What is the best way to contact you?",
+      name: "What is the best way to contact you?",
       field: "contact",
     },
-  ]
+  ];
 
   const KOLfields = [
     {
-      name:"Provide your Telegram:",
-      field:"tg",
+      name: "Provide your Telegram:",
+      field: "tg",
     },
     {
-      name:"How can you help Meadow?",
-      field:"how",
+      name: "How can you help Meadow?",
+      field: "how",
     },
     {
-      name:"Twitter",
-      field:"tw",
+      name: "Twitter",
+      field: "tw",
     },
     {
-      name:"Instagram:",
-      field:"ig",
+      name: "Instagram:",
+      field: "ig",
     },
     {
-      name:"LinkedIn",
-      field:"li",
+      name: "LinkedIn",
+      field: "li",
     },
     {
-      name:"TikTok",
-      field:"tt",
+      name: "TikTok",
+      field: "tt",
     },
     {
-      name:"What else can you provide other than marketing?",
-      field:"elsec",
+      name: "What else can you provide other than marketing?",
+      field: "elsec",
     },
     {
-      name:"Provide proof links of where you have marketed before:",
-      field:"proof",
+      name: "Provide proof links of where you have marketed before:",
+      field: "proof",
+    },
+    {
+      name: "Have you worked with anyone in the past?",
+      field: "proof",
     }
-   
+  ];
+  
+  const onSubmit = async (data) => {
     
-  ]
-//https://meadowlaunch.com
-  const onSubmit = async (data, type) => {
-    console.log(data)
-    const typeRoute = type == "IDO" ? "addLaunch":"addKoll"
+    const typeRoute = type == "IDO" ? "addIDO" : "addKOL";
 
-    const obj = {typeRoute,fields:data}
-    // console.log(data)
+    
+    
     try {
-      const response = await fetch('https://meadowlaunch.com/api/post', {
-        method: 'POST',
-        body: JSON.stringify(obj),
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch(`https://meadowlaunch.com/api/${typeRoute}`, {
+        method: "POST",
+        body: JSON.stringify({data}),
+        headers: { "Content-Type": "application/json" },
       });
       const message = await response.json();
-      console.log(message)
+      
       reset();
-      closeModal()
-      notify("Applied")
+      closeModal();
+      notify(message.message);
     } catch (error) {
       console.error(error);
     }
-
-
+    
   };
 
   return (
@@ -161,21 +160,25 @@ function ApplyModal({ isOpen, closeModal, type }) {
               leaveTo='opacity-0 scale-95'
             >
               <Dialog.Panel className='w-auto border-2   transform  rounded-2xl background-gradient p-6 text-left align-middle shadow-xl transition-all  flex items-center flex-col'>
-                <div className="w-auto text-center text-white font-bold text-[20px]" >Apply for {type}</div>
+                <div className='w-auto text-center text-white font-bold text-[20px]'>
+                  Apply for {type}
+                </div>
 
-                {
-                  type == "IDO" ? (
-                    <form onSubmit={handleSubmit(onSubmit)} className='w-auto'>
+                {type == "IDO" ? (
+                  <form onSubmit={handleSubmit(onSubmit)} className='w-auto'>
                     {/* Project Name*/}
-                    <div className="grid lg:grid-cols-2 gap-x-[50px]">
-
-                    {IDOfields.map(({name, field},i)=>(
-
-                    <InputField key={i} name={name} field={field} register={register} errors={errors}/>
-                    ))}
+                    <div className='grid lg:grid-cols-2 gap-x-[50px]'>
+                      {IDOfields.map(({ name, field }, i) => (
+                        <InputField
+                          key={i}
+                          name={name}
+                          field={field}
+                          register={register}
+                          errors={errors}
+                        />
+                      ))}
                     </div>
-                   
-  
+
                     <button
                       type='submit'
                       className='bg-white text-blue-700 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center font-bold  '
@@ -183,26 +186,26 @@ function ApplyModal({ isOpen, closeModal, type }) {
                       Submit
                     </button>
                   </form>
+                ) : (
+                  <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
+                    {KOLfields.map(({ name, field }, i) => (
+                      <InputField
+                        key={i}
+                        name={name}
+                        field={field}
+                        register={register}
+                        errors={errors}
+                      />
+                    ))}
 
-
-                  ) : (
-
-                <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
-                  {
-                    KOLfields.map(({name, field}, i)=>(
-                      <InputField key={i} name={name} field={field} register={register} errors={errors}/>
-                    ))
-                  }
-
-                  <button
-                    type='submit'
-                    className='bg-white text-blue-700 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center font-bold  '
-                  >
-                    Submit
-                  </button>
-                </form>
-                  )
-                }
+                    <button
+                      type='submit'
+                      className='bg-white text-blue-700 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center font-bold  '
+                    >
+                      Submit
+                    </button>
+                  </form>
+                )}
                 {/* IDO form */}
               </Dialog.Panel>
             </Transition.Child>
