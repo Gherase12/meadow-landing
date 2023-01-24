@@ -11,7 +11,9 @@ function ApplyModal({ isOpen, closeModal }) {
     watch,
     formState: { errors },
   } = useForm();
+
   const onSubmit = async (data) => {
+    console.log(data)
     try {
       const response = await fetch('/api/post', {
         method: 'POST',
@@ -26,6 +28,7 @@ function ApplyModal({ isOpen, closeModal }) {
       console.error(error);
     }
   };
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as='div' className='relative z-50' onClose={closeModal}>

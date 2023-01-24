@@ -6,9 +6,7 @@ export default function handler(req, res) {
 
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-        host: 'smtp.example.com',
-        port: 587,
-        secure: false, // true for 465, false for other ports
+        service: "gmail",
         auth: {
             user: 'cgherase12@gmail.com',
             pass: 'saotmwktlhnzlxycsaotmwktlhnzlxyc'
@@ -18,7 +16,7 @@ export default function handler(req, res) {
     // setup email data with unicode symbols
     let mailOptions = {
         from: 'cgherase12@gmail.com', // sender address
-        to: `${firstName} ${lastName} <${mail}>`, // list of receivers
+        to: `gherase.cosmin.12@gmail.com`, // list of receivers
         subject: `${firstName} ${lastName} has applyed`, // Subject line
         text: motivation, // plain text body
     };

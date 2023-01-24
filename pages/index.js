@@ -27,8 +27,7 @@ import ApplyModal from './../components/ApplyModal';
 export default function Home() {
   const [loading, setLoading] = useState(false);
   
-  // imgs
-  const imgs = ["/meadow-card.svg", "/project1.png", "/project2.png"];
+  
   
   // refs
   const homeRef = useRef(null);
@@ -103,7 +102,7 @@ export default function Home() {
        <div className="absolute w-[300px] h-[300px] scale-[0.2] md:scale-[0.5] lg:scale-[1] -right-[120px] lg:right-0 -bottom-[0px] ">
           <Image src="/object-3.webp" fill className="object-cover"/>
        </div>
-        <h2 className='text-white lg:text-[60px] text-[40px] z-40 '>
+        <h2 className='text-white lg:text-[60px] md:text-[40px] text-[30px] z-40  text-center '>
           Business & Contact
         </h2>
         <p className='px-[10px] text-[16px] leading-[160%] text-white z-40 lg:w-[462px] lg:h-[78px] text-center  '>
@@ -116,7 +115,7 @@ export default function Home() {
           <DashboardBtn setLoading={setLoading} />
           
           <button className=' border-white   text-white w-[187px] h-[56px] rounded-full z-40 border-[1px] '>
-            Apply now
+            Contact Us
           </button>
         </div>
       </motion.div>
