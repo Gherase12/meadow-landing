@@ -2,8 +2,10 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { useForm } from "react-hook-form";
 import {  toast } from 'react-toastify';
+import emailjs from '@emailjs/browser';
+import InputField from './InputField';
 
-function ApplyModal({ isOpen, closeModal }) {
+function ApplyModal({ isOpen, closeModal, type }) {
   const {
     register,
     handleSubmit,
@@ -15,21 +17,121 @@ function ApplyModal({ isOpen, closeModal }) {
 
   const notify = (message) => toast.success(message);
 
-  const onSubmit = async (data) => {
+
+  const IDOfields = [
+    {
+      name:"Project Name:",
+      field: "pn",
+    },
+    {
+      name:"Discord:",
+      field: "disc",
+    },
+    {
+      name:"Twitter:",
+      field: "Twitter",
+    },
+    {
+      name:"Telegram:",
+      field: "tg",
+    },
+    {
+      name:"What is your website link?",
+      field: "web",
+    },
+    {
+      name:"Provide the link to your pitch deck:",
+      field: "pitch",
+    },
+    {
+      name:"How much do you guys plan to raise in total?",
+      field: "raise",
+    },
+    {
+      name:"How much have you raised to this date? (Provide in USD)",
+      field: "araise",
+    },
+    {
+      name:"What is your initial market-cap?",
+      field: "mc",
+    },
+    {
+      name:"What is the vesting schedule for all rounds?",
+      field: "vest",
+    },
+    {
+      name:"Who are your competitors?",
+      field: "comp",
+    },
+    {
+      name:"Share your Team socials links:",
+      field: "team",
+    },
+    {
+      name:"What is the best way to contact you?",
+      field: "contact",
+    },
+  ]
+
+  const KOLfields = [
+    {
+      name:"Provide your Telegram:",
+      field:"tg",
+    },
+    {
+      name:"How can you help Meadow?",
+      field:"how",
+    },
+    {
+      name:"Twitter",
+      field:"tw",
+    },
+    {
+      name:"Instagram:",
+      field:"ig",
+    },
+    {
+      name:"LinkedIn",
+      field:"li",
+    },
+    {
+      name:"TikTok",
+      field:"tt",
+    },
+    {
+      name:"What else can you provide other than marketing?",
+      field:"elsec",
+    },
+    {
+      name:"Provide proof links of where you have marketed before:",
+      field:"proof",
+    }
+   
+    
+  ]
+//https://meadowlaunch.com
+  const onSubmit = async (data, type) => {
     console.log(data)
+    const typeRoute = type == "IDO" ? "addLaunch":"addKoll"
+
+    const obj = {typeRoute,fields:data}
+    // console.log(data)
     try {
       const response = await fetch('https://meadowlaunch.com/api/post', {
         method: 'POST',
-        body: JSON.stringify(data),
+        body: JSON.stringify(obj),
         headers: { 'Content-Type': 'application/json' },
       });
       const message = await response.json();
+      console.log(message)
       reset();
       closeModal()
-      notify(message.name)
+      notify("Applied")
     } catch (error) {
       console.error(error);
     }
+
+
   };
 
   return (
@@ -48,7 +150,7 @@ function ApplyModal({ isOpen, closeModal }) {
         </Transition.Child>
 
         <div className='fixed inset-0 overflow-y-auto'>
-          <div className='flex min-h-full items-center justify-center p-4 text-center'>
+          <div className='flex min-h-full items-center justify-center p-4 text-center '>
             <Transition.Child
               as={Fragment}
               enter='ease-out duration-300'
@@ -58,91 +160,39 @@ function ApplyModal({ isOpen, closeModal }) {
               leaveFrom='opacity-100 scale-100'
               leaveTo='opacity-0 scale-95'
             >
-              <Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-2xl background-gradient p-6 text-left align-middle shadow-xl transition-all  flex items-center flex-col'>
-                <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
-                  {/* first name */}
-                  <div className='mb-6'>
-                    <label
-                      for='base-input'
-                      className='block mb-2 text-sm  text-white font-bold '
-                    >
-                      First name
-                    </label>
-                    <input
-                      type='text'
-                      id='base-input'
-                      {...register("firstName", {
-                        required: true,
-                        maxLength: 20,
-                      })}
-                      className='bg-gray-50 border border-gray-300 text-blue-600 font-bold text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
-                    />
-                    {errors.firstName && (
-                      <div className='text-red-500 font-bold'>Requiered!</div>
-                    )}
-                  </div>
-                  {/* last name */}
-                  <div className='mb-6'>
-                    <label
-                      for='base-input'
-                      className='block mb-2 text-sm  text-white font-bold '
-                    >
-                      Last name
-                    </label>
-                    <input
-                      type='text'
-                      id='base-input'
-                      {...register("lastName", {
-                        required: true,
-                        maxLength: 20,
-                      })}
-                      className='bg-gray-50 border border-gray-300 text-blue-600 font-bold text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
-                    />
-                    {errors.lastName && (
-                      <div className='text-red-500 font-bold'>Requiered!</div>
-                    )}
-                  </div>
+              <Dialog.Panel className='w-auto border-2   transform  rounded-2xl background-gradient p-6 text-left align-middle shadow-xl transition-all  flex items-center flex-col'>
+                <div className="w-auto text-center text-white font-bold text-[20px]" >Apply for {type}</div>
 
-                  {/*  */}
-                  <div className='mb-6'>
-                    <label
-                      for='email'
-                      className='block mb-2 text-sm  text-white  font-bold '
+                {
+                  type == "IDO" ? (
+                    <form onSubmit={handleSubmit(onSubmit)} className='w-auto'>
+                    {/* Project Name*/}
+                    <div className="grid lg:grid-cols-2 gap-x-[50px]">
+
+                    {IDOfields.map(({name, field})=>(
+
+                    <InputField name={name} field={field} register={register} errors={errors}/>
+                    ))}
+                    </div>
+                   
+  
+                    <button
+                      type='submit'
+                      className='bg-white text-blue-700 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center font-bold  '
                     >
-                      Your email
-                    </label>
-                    <input
-                      type='email'
-                      id='email'
-                      className=' border border-gray-300 text-blue-600 font-bold text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
-                      {...register("mail", {
-                        required: "Email Address is required",
-                      })}
-                      required
-                    />
-                    {errors.email && (
-                      <div className='text-red-500 font-bold'>Requiered!</div>
-                    )}
-                  </div>
-                  {/* motivation */}
-                  <div className='mb-6'>
-                    <label
-                      for='message'
-                      className='block mb-2 text-sm  text-white font-bold '
-                    >
-                      Why you chose Meadow?
-                    </label>
-                    <textarea
-                      id='message'
-                      rows='4'
-                      className='block p-2.5 w-full text-sm text-blue-600 font-bold bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 '
-                      placeholder='Leave a comment...'
-                      {...register("motivation", { required: true })}
-                    ></textarea>
-                    {errors.motivation && (
-                      <div className='text-red-500 font-bold'>Requiered!</div>
-                    )}
-                  </div>
+                      Submit
+                    </button>
+                  </form>
+
+
+                  ) : (
+
+                <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
+                  {
+                    KOLfields.map(({name, field})=>(
+                      <InputField name={name} field={field} register={register} errors={errors}/>
+                    ))
+                  }
 
                   <button
                     type='submit'
@@ -151,6 +201,9 @@ function ApplyModal({ isOpen, closeModal }) {
                     Submit
                   </button>
                 </form>
+                  )
+                }
+                {/* IDO form */}
               </Dialog.Panel>
             </Transition.Child>
           </div>

@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.10.0",
     "@headlessui/react": "^1.7.7",
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@next/font": "13.1.1",
     "axios": "^1.2.3",
+    "emailjs": "^4.0.1",
     "eslint": "8.30.0",
     "eslint-config-next": "13.1.1",
     "framer-motion": "^8.0.2",

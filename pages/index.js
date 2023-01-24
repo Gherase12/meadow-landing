@@ -2,11 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { BsTwitter } from "react-icons/bs";
 import { FaDiscord } from "react-icons/fa";
-import {
-  AiOutlineInstagram,
-
-} from "react-icons/ai";
-
+import { AiOutlineInstagram } from "react-icons/ai";
 
 import Nav from "../components/Nav";
 import { motion } from "framer-motion";
@@ -17,28 +13,22 @@ import LoadingOverlay from "../components/LoadingOverlay";
 import ActionCards from "./../components/ActionCards";
 
 import TeamSection from "../components/TeamSection";
-import FaqSection from './../components/FaqSection';
-import HeroSection from './../components/HeroSection';
+import FaqSection from "./../components/FaqSection";
+import HeroSection from "./../components/HeroSection";
 import PrivateRoundSection from "../components/PrivateRoundSection";
 import BuildToProtectSection from "../components/BuildToProtectSection";
-import DashboardBtn from './../components/btn/DashboardBtn';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import DashboardBtn from "./../components/btn/DashboardBtn";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
-  
-  
-  
+
   // refs
   const homeRef = useRef(null);
   const applyRef = useRef(null);
   const teamRef = useRef(null);
   //team info
-  
-  
-  
-  
 
   // framer motion variants
   const orizontalVariants = {
@@ -52,11 +42,10 @@ export default function Home() {
     transition: { delay: 4, duration: 2 },
   };
 
-  
   return (
     <div className='lg:p-[20px] overflow-hidden relative'>
-        <ToastContainer />
-      
+      <ToastContainer />
+
       {loading && <LoadingOverlay />}
       <Head>
         <title>Meadow home</title>
@@ -71,23 +60,29 @@ export default function Home() {
         setLoading={setLoading}
       />
       {/* header */}
-      <HeroSection homeRef={homeRef} orizontalVariants={orizontalVariants} setLoading={setLoading} />
-     
-      
+      <HeroSection
+        homeRef={homeRef}
+        orizontalVariants={orizontalVariants}
+        setLoading={setLoading}
+      />
+
       {/* privete round */}
       <PrivateRoundSection />
 
       <BuildToProtectSection inViewVariants={inViewVariants} />
 
       {/* action cards */}
-      <ActionCards inViewVariants={inViewVariants} applyRef={applyRef}  />
+      <ActionCards inViewVariants={inViewVariants} applyRef={applyRef} />
 
       {/* team */}
 
-   <TeamSection teamRef={teamRef} orizontalVariants={orizontalVariants} inViewVariants={inViewVariants}/>
-   <FaqSection inViewVariants={inViewVariants} />
+      <TeamSection
+        teamRef={teamRef}
+        orizontalVariants={orizontalVariants}
+        inViewVariants={inViewVariants}
+      />
+      <FaqSection inViewVariants={inViewVariants} />
 
-      
       {/* join section */}
       <motion.div
         initial='hidden'
@@ -97,25 +92,25 @@ export default function Home() {
         className='h-[440px] overflow-hidden max-w-[1500px] mx-auto relative flex justify-center items-center  flex-col space-y-[30px] footer-background  lg:rounded-[40px]'
       >
         {/* object 1 */}
-       <div className="absolute w-[690px] h-[690px]  scale-[0.2] md:scale-[0.5] lg:scale-[1] -left-[350px] -bottom-[250px] ">
-          <Image src="/object-1.webp" fill className="object-cover "/>
-       </div>
-       {/* object-2 */}
-       <div className="absolute w-[300px] h-[300px] scale-[0.2] md:scale-[0.5] lg:scale-[1] -right-[120px] lg:right-0 -bottom-[0px] ">
-          <Image src="/object-3.webp" fill className="object-cover"/>
-       </div>
-        <h2 className='text-white lg:text-[60px] md:text-[40px] text-[30px] z-40  text-center '>
+        <div className='absolute w-[690px] h-[690px]  scale-[0.2] md:scale-[0.5] lg:scale-[1] -left-[350px] -bottom-[250px] '>
+          <Image src='/object-1.webp' fill className='object-cover ' />
+        </div>
+        {/* object-2 */}
+        <div className='absolute w-[300px] h-[300px] scale-[0.2] md:scale-[0.5] lg:scale-[1] -right-[120px] lg:right-0 -bottom-[0px] '>
+          <Image src='/object-3.webp' fill className='object-cover' />
+        </div>
+        <h2 className='text-white lg:text-[60px] md:text-[40px] text-[30px] z-40  text-center  '>
           Business & Contact
         </h2>
-        <p className='px-[10px] text-[16px] leading-[160%] text-white z-40 lg:w-[462px] lg:h-[78px] text-center  '>
-          Meadow is ready to launch the most fascinating tier 1 projects on the
-          most scalable, safest Layer 1 blockchain, with a team of highly
-          qualified experts who have trackrecord of success.
+        <p className='px-[10px] text-[16px] leading-[160%] text-white z-40 lg:w-[462px]  text-center '>
+          Looking for the best launchpad for your crypto project? Contact us!
+          Our premier incubation program offers resources and expertise to bring
+          your vision to reality. We can't wait to hear from you and take your
+          project to the next level.
         </p>
         <div className='flex z-40 space-x-[20px] scale-[0.7] lg:scale-[1] '>
-         
           <DashboardBtn setLoading={setLoading} />
-          
+
           <button className=' border-white   text-white w-[187px] h-[56px] rounded-full z-40 border-[1px] '>
             Contact Us
           </button>
@@ -135,7 +130,7 @@ export default function Home() {
             <AiOutlineInstagram />
           </Link>
         </div>
-       
+
         <li className='text-[10px] px-[10px] mb-[10px] lg:mb-0 flex justify-between space-x-[10px] lg:text-[14px] cursor-pointe  w-full xl:w-auto '>
           <ul>Privacy Policy</ul>
           <ul>Terms of use</ul>
