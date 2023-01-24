@@ -1,7 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import {  toast } from 'react-toastify';
 
 function ApplyModal({ isOpen, closeModal }) {
   const {
@@ -12,6 +12,9 @@ function ApplyModal({ isOpen, closeModal }) {
     formState: { errors },
   } = useForm();
 
+
+  const notify = (message) => toast.success(message);
+
   const onSubmit = async (data) => {
     console.log(data)
     try {
@@ -20,10 +23,10 @@ function ApplyModal({ isOpen, closeModal }) {
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' },
       });
-      const json = await response.json();
+      const message = await response.json();
       reset();
       closeModal()
-      console.log(json);
+      notify(message.name)
     } catch (error) {
       console.error(error);
     }

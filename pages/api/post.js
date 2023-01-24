@@ -1,35 +1,29 @@
-import nodemailer from 'nodemailer';
+const client = require("@mailchimp/mailchimp_marketing");
 
 export default function handler(req, res) {
-    const { firstName, lastName, mail, motivation } = req.body;
-    console.log(req.body)
+  const { firstName, lastName, mail, motivation } = req.body;
 
-    // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-            user: 'cgherase12@gmail.com',
-            pass: 'saotmwktlhnzlxycsaotmwktlhnzlxyc'
-        }
-    });
+  client.setConfig({
+    apiKey: process.env.MAILCHIMP_API_KEY,
+    server: "us12",
+  });
 
-    // setup email data with unicode symbols
-    let mailOptions = {
-        from: 'cgherase12@gmail.com', // sender address
-        to: `gherase.cosmin.12@gmail.com`, // list of receivers
-        subject: `${firstName} ${lastName} has applyed`, // Subject line
-        text: motivation, // plain text body
+  const run = async () => {
+    const subscriber = {
+      email_address: mail,
+      status: "subscribed",
+      merge_fields: {
+        FNAME: firstName,
+        LNAME: lastName,
+        MOTIVATION: motivation,
+      },
     };
-
-    // send mail with defined transport object
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return console.log(error);
-        }
-        console.log('Message sent: %s', info.messageId);
-        // Preview only available when sending through an Ethereal account
-        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-
-        res.status(200).json({ message: 'Email sent' });
+    const response = await client.lists.batchListMembers("e103db3244", {
+      members: [subscriber],
     });
+    console.log(response);
+    res.status(200).json({ name: "Applied" });
+  };
+
+  run();
 }

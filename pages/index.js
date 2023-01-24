@@ -22,7 +22,8 @@ import HeroSection from './../components/HeroSection';
 import PrivateRoundSection from "../components/PrivateRoundSection";
 import BuildToProtectSection from "../components/BuildToProtectSection";
 import DashboardBtn from './../components/btn/DashboardBtn';
-import ApplyModal from './../components/ApplyModal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -36,7 +37,7 @@ export default function Home() {
   //team info
   
   
-
+  
   
 
   // framer motion variants
@@ -54,6 +55,7 @@ export default function Home() {
   
   return (
     <div className='lg:p-[20px] overflow-hidden relative'>
+        <ToastContainer />
       
       {loading && <LoadingOverlay />}
       <Head>
