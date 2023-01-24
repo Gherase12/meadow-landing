@@ -104,11 +104,11 @@ export default function Home() {
           <Image src="/object-3.webp" fill className="object-cover"/>
        </div>
         <h2 className='text-white lg:text-[60px] text-[40px] z-40 '>
-          Join right now
+          Business & Contact
         </h2>
         <p className='px-[10px] text-[16px] leading-[160%] text-white z-40 lg:w-[462px] lg:h-[78px] text-center  '>
           Meadow is ready to launch the most fascinating tier 1 projects on the
-          most scalable, safest Layer 1blockchain, with a team of highly
+          most scalable, safest Layer 1 blockchain, with a team of highly
           qualified experts who have trackrecord of success.
         </p>
         <div className='flex z-40 space-x-[20px] scale-[0.7] lg:scale-[1] '>

@@ -7,28 +7,30 @@ function FaqSection({inViewVariants}) {
 
     const faq = [
         {
-          q: "When will the full launch of the project take place?",
-          a: "Q2/Early Q3 of 2023 depending on when SUI Mainnet Launches \n (we will launch the same week that SUI launches)",
+          q: "What is the benefit of having OG role?",
+          a: "OG role comes with many different benefits including automatically whitelisted for the private round, early info on Meadow, private channel with OGS, you can find out more in our docs.",
         },
         {
-          q: " What’s the benefit of having Legend role?",
-          a: "Legend Roles are very limited but have the absolute best benefits for our community members: \n \n- Automatic whitelist for private round \n- Exclusive private channel \n- Eligble to participate in any contest or giveaways \n- More allocation in the private round \n- Possible automatic whitelist opportunities for other launches \n \nMore details: ",
+          q: " What is the inital marketcap of Meadow?",
+          a: "The initial marketcap will be $115,000.",
         },
         {
-          q: "Will it support other wallets and chains?",
-          a: "Yes, Meadow is a multi-chain launchpad and will be bridging to other chains starting with SUI",
+          q: "Will Meadow support other chains?",
+          a: "Yes, we are looking forward to going multichain as we believe innovating is a key instrument when it comes to long term sustainability.",
+        },
+       
+        {
+          q: "When will Meadow launch?",
+          a: "Meadow will time the launch with the market, likely in Q2 - Q3.",
+        },
+        
+        {
+          q: "When will the private round open?",
+          a: " The private round will be open in Q2, in order to participate you will need to work your way up using the Crew3 platform. You will be rewarded with roles depending on what level you are. More info in docs  ",
         },
         {
-          q: "What are the first projects that are going to launch on Meadow?",
-          a: "Gaming projects and AI",
-        },
-        {
-          q: "How many token will  be available for the team?",
-          a: " See here on our Gitbook for detailed Tokenomics \n ",
-        },
-        {
-          q: "What insurance claims are set for each level?",
-          a: "Diamond: 30% \n Gold 15% \n See for more details: ",
+          q: "What kind of projects will Meadow launch?",
+          a: "Meadow focuses on quality, we will launch projects from all grounds including Gaming, Ai, as long as the project showcases that they are unique and bring great value to the ecosystem, we will incubate them. ",
         },
       ];
   return (
