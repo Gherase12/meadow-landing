@@ -18,7 +18,7 @@ function ApplyModal({ isOpen, closeModal }) {
   const onSubmit = async (data) => {
     console.log(data)
     try {
-      const response = await fetch('/api/post', {
+      const response = await fetch('https://meadowlaunch.com/api/post', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' },
