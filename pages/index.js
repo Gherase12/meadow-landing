@@ -103,10 +103,10 @@ export default function Home() {
           Business & Contact
         </h2>
         <p className='px-[10px] text-[16px] leading-[160%] text-white z-40 lg:w-[462px]  text-center '>
-          Looking for the best launchpad for your crypto project? Contact us!
           Our premier incubation program offers resources and expertise to bring
-          your vision to reality. We can&apos;t wait to hear from you and take your
-          project to the next level.
+          your vision to reality. You can contact us using this
+          Meadow@meadowlaunch.com, we look forward to potentially working with
+          you!
         </p>
         <div className='flex z-40 space-x-[20px] scale-[0.7] lg:scale-[1] '>
           <DashboardBtn setLoading={setLoading} />
