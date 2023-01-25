@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/Link";
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
@@ -34,6 +34,7 @@ function TeamSection({ teamRef, orizontalVariants, inViewVariants }) {
     {
       desc: "Hamza is part of the legal team for Meadow, with regulations kicking in, it is important to stay within the regulatory framework, Hamza will make sure that Meadow is conducting a smooth KYC/KYB procedure with start-ups and our partners. He has previously worked at Giant Group as a Corporate Legal Advisor and will validate projects through critical inspection.",
       linkedin: false,
+
     },
     {
       desc: "Rene van Dijk will also be a gaming advisor for Meadow, he is a Blockchain specialist, web3 game manager, six-year experience in blockchain technology along with a long history of helping startups and new projects to grow bigger. Rene's main goal is to change the future of gaming by fixing the gap between web3 and the traditional gaming industry by helping companies to produce high-quality web3 games. Skills which have been obtained include Web3 gaming, Game development management, Blockchain technology, Marketing, Product Launch and strategy, background CEO Designton AG Game Studio, Swiss, CEO of Xdroids, COO Fox Gaming.",
