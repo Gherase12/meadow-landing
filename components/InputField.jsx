@@ -13,8 +13,7 @@ function InputField({ name, field, register, errors, type }) {
         type={type}
         id='base-input'
         {...register(field, {
-          required: true,
-          maxLength: 20,
+          required: true          
         })}
         className='bg-gray-50 border border-gray-300 text-blue-600 font-bold text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
       />

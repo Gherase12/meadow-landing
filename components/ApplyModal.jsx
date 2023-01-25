@@ -15,6 +15,7 @@ function ApplyModal({ isOpen, closeModal, type }) {
   } = useForm();
 
   const notify = (message) => toast.success(message);
+  console.log(errors)
 
   const IDOfields = [
     {
@@ -136,7 +137,7 @@ function ApplyModal({ isOpen, closeModal, type }) {
     
     const typeRoute = type == "IDO" ? "addIDO" : "addKOL";
 
-    
+    //https://meadowlaunch.com
     
     try {
       const response = await fetch(`https://meadowlaunch.com/api/${typeRoute}`, {
