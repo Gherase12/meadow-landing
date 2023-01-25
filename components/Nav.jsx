@@ -70,7 +70,7 @@ function Nav({ homeRef, applyRef, teamRef, setLoading }) {
           >
             Team
           </li>
-          <Link href='https://meadow.gitbook.io/docs/'>
+          <Link  target="_blank" rel="noreferrer noopener" href='https://meadow.gitbook.io/docs/'>
             <li className='cursor-pointer'>Docs</li>
           </Link>
         </ul>

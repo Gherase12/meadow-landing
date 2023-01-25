@@ -14,11 +14,11 @@ function HeroSection({homeRef, orizontalVariants, setLoading}) {
   return (
     <div
     ref={homeRef}
-    className='mb-[150px] lg:mb-[271px] lg:rounded-t-[40px] wwe lg:rounded-b-[70px]  relative background-gradient   w-full h-[600px] lg:h-[800px] lg:p-[40px] z-10 pt-[30px]  '
+    className='mb-[150px] lg:mb-[271px] lg:rounded-t-[40px] lg:rounded-b-[70px]  relative background-gradient   w-full h-[600px] lg:h-[800px] lg:p-[40px] z-10 pt-[30px]  '
   >
     {/* images */}
 
-    <div className='absolute w-[150px] h-[150px] bottom-[60px] right-0  lg:w-[822px] lg:h-[822px] lg:right-[280px] lg:top-[270px] lg:scale-[1.2] z-30 '>
+    <div className='absolute w-[150px] h-[150px] md:w-[300px] md:h-[300px] bottom-[60px] right-0  2xl:w-[822px] 2xl:h-[822px]  lg:top-[500px]  lg:right-[280px] 2xl:top-[270px] lg:scale-[1.2] z-30 '>
       <Image src={"/object-1.webp"} fill alt='object-1' />
     </div>
 
@@ -61,13 +61,13 @@ function HeroSection({homeRef, orizontalVariants, setLoading}) {
     <div className='flex absolute bottom-[30px] scale-[0.6] lg:scale-[1]  lg:bottom-[100px] -left-[30px] lg:left-[152px] space-x-[20px] z-40'>
     <DashboardBtn setLoading={setLoading} />
       <div className='text-white text-[40px] space-x-[10px] flex items-center'>
-        <Link href='https://twitter.com/meadowlaunch'>
+        <Link  target="_blank" rel="noreferrer noopener" href='https://twitter.com/meadowlaunch'>
           <BsTwitter />
         </Link>
-        <Link href='https://t.co/FLNKZU3ujp'>
+        <Link  target="_blank" rel="noreferrer noopener" href='https://t.co/FLNKZU3ujp'>
           <FaDiscord />
         </Link>
-        <Link href='https://www.instagram.com/meadow_launch/?hl=ro'>
+        <Link  target="_blank" rel="noreferrer noopener" href='https://www.instagram.com/meadow_launch/?hl=ro'>
           <AiOutlineInstagram />
         </Link>
       </div>

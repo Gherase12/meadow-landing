@@ -12,7 +12,7 @@ function FaqSection({inViewVariants}) {
         },
         {
           q: " What is the inital marketcap of Meadow?",
-          a: "The initial marketcap will be $115,000.",
+          a: "The initial marketcap will be $155,000.",
         },
         {
           q: "Will Meadow support other chains?",

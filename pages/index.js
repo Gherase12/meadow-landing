@@ -20,6 +20,7 @@ import BuildToProtectSection from "../components/BuildToProtectSection";
 import DashboardBtn from "./../components/btn/DashboardBtn";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ScrollTopButton from './../components/btn/ScrollTopButton';
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -45,6 +46,7 @@ export default function Home() {
   return (
     <div className='lg:p-[20px] overflow-hidden relative'>
       <ToastContainer />
+      <ScrollTopButton homeRef={homeRef} inViewVariants={inViewVariants} />
 
       {loading && <LoadingOverlay />}
       <Head>
@@ -59,6 +61,7 @@ export default function Home() {
         teamRef={teamRef}
         setLoading={setLoading}
       />
+
       {/* header */}
       <HeroSection
         homeRef={homeRef}
@@ -120,13 +123,13 @@ export default function Home() {
       <div className='max-w-[1500px] mx-auto flex justify-between items-center mt-[30px] '>
         <div className='text-black  space-x-[20px] text-[20px] hidden lg:flex'>
           <p className='text-[14px]   '>Follow us on</p>
-          <Link href='https://twitter.com/meadowlaunch'>
+          <Link  target="_blank" rel="noreferrer noopener" href='https://twitter.com/meadowlaunch'>
             <BsTwitter />
           </Link>
-          <Link href='https://t.co/FLNKZU3ujp'>
+          <Link  target="_blank" rel="noreferrer noopener" href='https://t.co/FLNKZU3ujp'>
             <FaDiscord />
           </Link>
-          <Link href='https://www.instagram.com/meadow_launch/?hl=ro'>
+          <Link  target="_blank" rel="noreferrer noopener" href='https://www.instagram.com/meadow_launch/?hl=ro'>
             <AiOutlineInstagram />
           </Link>
         </div>

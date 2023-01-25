@@ -59,7 +59,7 @@ function TeamSection({teamRef, orizontalVariants, inViewVariants}) {
                 alt='team member'
               />
               </div>
-              <div className='flip-card-back w-[338px] scrollbar-hide h-[200px] top-[70px] lg:top-0 bg-blue-1 lg:h-[345px] team-font  lg:w-[538px] rounded-[20px] lg:rounded-[30px] text-black text-[13px] lg:text-[17px] lg:p-[30px] p-[15px] font-normal overflow-y-scroll'>
+              <div className='flip-card-back w-[338px] scrollbar-hide h-[200px] flex items-center top-[70px] lg:top-0 bg-blue-1 lg:h-[345px] team-font  lg:w-[538px] rounded-[20px] lg:rounded-[30px] text-black text-[13px] lg:text-[17px] lg:p-[30px] p-[15px] font-normal overflow-y-scroll'>
                 {teamInfo[i]}
               </div>
             </div>

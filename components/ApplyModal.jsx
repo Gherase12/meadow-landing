@@ -2,9 +2,9 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import emailjs from "@emailjs/browser";
-import InputField from "./InputField";
+import {MdOutlineClose} from 'react-icons/md';
 
+import InputField from "./InputField";
 function ApplyModal({ isOpen, closeModal, type }) {
   const {
     register,
@@ -20,54 +20,67 @@ function ApplyModal({ isOpen, closeModal, type }) {
     {
       name: "Project Name:",
       field: "pn",
+      type:"text"
     },
     {
-      name: "Discord:",
+      name: "Discord (link):",
       field: "disc",
+      type:"url"
     },
     {
-      name: "Twitter:",
+      name: "Twitter (link):",
       field: "Twitter",
+      type:"url"
     },
     {
-      name: "Telegram:",
+      name: "Telegram (link):",
       field: "tg",
+      type:"url"
     },
     {
       name: "What is your website link?",
       field: "web",
+      type:"text"
     },
     {
       name: "Provide the link to your pitch deck:",
       field: "pitch",
+      type:"text"
     },
     {
       name: "How much do you guys plan to raise in total?",
       field: "raise",
+      type:"text"
     },
     {
       name: "How much have you raised to this date? (Provide in USD)",
       field: "araise",
+      type:"number"
     },
     {
       name: "What is your initial market-cap?",
       field: "mc",
+      type:"number"
     },
     {
       name: "What is the vesting schedule for all rounds?",
       field: "vest",
+      type:"text"
     },
     {
       name: "Who are your competitors?",
       field: "comp",
+      type:"text"
     },
     {
       name: "Share your Team socials links:",
       field: "team",
+      type:"url"
     },
     {
       name: "What is the best way to contact you?",
       field: "contact",
+      type:"text"
     },
   ];
 
@@ -75,38 +88,47 @@ function ApplyModal({ isOpen, closeModal, type }) {
     {
       name: "Provide your Telegram:",
       field: "tg",
+      type:"url"
     },
     {
       name: "How can you help Meadow?",
       field: "how",
+      type:"text"
     },
     {
-      name: "Twitter",
+      name: "Twitter (link):",
       field: "tw",
+      type:"url"
     },
     {
-      name: "Instagram:",
+      name: "Instagram (link):",
       field: "ig",
+      type:"url"
     },
     {
-      name: "LinkedIn",
+      name: "LinkedIn (link):",
       field: "li",
+      type:"url"
     },
     {
-      name: "TikTok",
+      name: "TikTok (link):",
       field: "tt",
+      type:"url"
     },
     {
       name: "What else can you provide other than marketing?",
       field: "elsec",
+      type:"text"
     },
     {
       name: "Provide proof links of where you have marketed before:",
       field: "proof",
+      type:"url"
     },
     {
       name: "Have you worked with anyone in the past?",
       field: "proof",
+      type:"text"
     }
   ];
   
@@ -159,8 +181,9 @@ function ApplyModal({ isOpen, closeModal, type }) {
               leaveFrom='opacity-100 scale-100'
               leaveTo='opacity-0 scale-95'
             >
-              <Dialog.Panel className='w-auto border-2   transform  rounded-2xl background-gradient p-6 text-left align-middle shadow-xl transition-all  flex items-center flex-col'>
-                <div className='w-auto text-center text-white font-bold text-[20px]'>
+              <Dialog.Panel className='w-auto border-2 relative   transform  rounded-2xl background-gradient p-6 text-left align-middle shadow-xl transition-all  flex items-center flex-col'>
+                <MdOutlineClose  onClick={()=>closeModal()} className="absolute top-[20px]  right-[20px] text-white  md:text-[20px] cursor-pointer " />
+                <div className='w-auto text-center text-white font-bold text-[20px] mb-[30px]'>
                   Apply for {type}
                 </div>
 
@@ -168,8 +191,9 @@ function ApplyModal({ isOpen, closeModal, type }) {
                   <form onSubmit={handleSubmit(onSubmit)} className='w-auto'>
                     {/* Project Name*/}
                     <div className='grid lg:grid-cols-2 gap-x-[50px]'>
-                      {IDOfields.map(({ name, field }, i) => (
+                      {IDOfields.map(({ name, field, type }, i) => (
                         <InputField
+                        type={type}
                           key={i}
                           name={name}
                           field={field}
@@ -188,15 +212,19 @@ function ApplyModal({ isOpen, closeModal, type }) {
                   </form>
                 ) : (
                   <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
-                    {KOLfields.map(({ name, field }, i) => (
+                    <div className="grid lg:grid-cols-2 gap-x-[50px]" >
+
+                    {KOLfields.map(({ name, field ,type}, i) => (
                       <InputField
                         key={i}
+                        type={type}
                         name={name}
                         field={field}
                         register={register}
                         errors={errors}
                       />
                     ))}
+                    </div>
 
                     <button
                       type='submit'

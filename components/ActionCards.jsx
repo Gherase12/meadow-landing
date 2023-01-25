@@ -59,7 +59,7 @@ function ActionCards({ inViewVariants, applyRef}) {
             Apply for IDO
           </h2>
           <p className='  text-[12px] text-[#3E81A2] font-bold mb-[30px]  max-w-[400px]'>
-          We are always on the lookout for creative and disruptive projects. Our team of experts will critically vet every submission, handpick the unique ones, and then work with their creators—taking the project to the next level.
+          We are always on the lookout for creative and disruptive projects. Our team of experts will critically vet every submission, handpick the unique ones, and then work with their creators to take the project to the next level.
           </p>
 
           <button onClick={(e)=>{openModal(e); setType("IDO")}} className='animate-pulse py-[5px]  bg-white text-black rounded-full font-bold px-[10px]   flex items-center justify-center text-[15px] border-white  mb-[30px] '>
