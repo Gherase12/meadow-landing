@@ -21,7 +21,7 @@ function TeamSection({ teamRef, orizontalVariants, inViewVariants }) {
 
     {
       desc: "Navid is the Chief Marketing Officer at Meadow. In addition to being the CEO of the Persian Army, he has served as a consultant for Kommunitas.net and marketing leader zincopad.app. He has over five years of expertise in crypto and ties to the most influential individuals. Exposure and strategic partners are essential, and Navid's experience will expedite Meadow's expansion.",
-      linkedin: null,
+      linkedin: false,
     },
     {
       desc: "Tommi Karjalainen has joined Meadow as a gaming advisor, an overview of Tommi consists of being a Game Director, Senior Designer Over 14 years of experience in UX, and visual design for digital services and applications. Have been working across a huge range of different brands and companies around the globe. Currently developing a game exclusively for Nintendo with the top talents. A passionate gamer since 1990 and have a wide knowledge of the game industry. Skills obtained include Visual design, Game design, UX, Quality and usability testing, 3D modeling, IOS, Android, Nintendo ecosystem. Currently a CEO, Game Director Designton Game Studios, Finland Senior Designer, Consultant Futurice",
@@ -33,7 +33,7 @@ function TeamSection({ teamRef, orizontalVariants, inViewVariants }) {
     },
     {
       desc: "Hamza is part of the legal team for Meadow, with regulations kicking in, it is important to stay within the regulatory framework, Hamza will make sure that Meadow is conducting a smooth KYC/KYB procedure with start-ups and our partners. He has previously worked at Giant Group as a Corporate Legal Advisor and will validate projects through critical inspection.",
-      linkedin: null,
+      linkedin: false,
     },
     {
       desc: "Rene van Dijk will also be a gaming advisor for Meadow, he is a Blockchain specialist, web3 game manager, six-year experience in blockchain technology along with a long history of helping startups and new projects to grow bigger. Rene's main goal is to change the future of gaming by fixing the gap between web3 and the traditional gaming industry by helping companies to produce high-quality web3 games. Skills which have been obtained include Web3 gaming, Game development management, Blockchain technology, Marketing, Product Launch and strategy, background CEO Designton AG Game Studio, Swiss, CEO of Xdroids, COO Fox Gaming.",
@@ -99,7 +99,7 @@ function TeamSection({ teamRef, orizontalVariants, inViewVariants }) {
                       </Link>
                     )}
 
-                    <p className={!linkedin && "pt-[30px]"}>{desc}</p>
+                    <p className={!linkedin ? "pt-[30px]": ""}>{desc}</p>
                   </div>
                 </div>
               </div>
