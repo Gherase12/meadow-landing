@@ -26,11 +26,11 @@ function FaqSection({inViewVariants}) {
         
         {
           q: "When will the private round open?",
-          a: " The private round will be open in Q2, in order to participate you will need to work your way up using the Crew3 platform. You will be rewarded with roles depending on what level you are. More info in docs  ",
+          a: " The private round will be open in Q2, in order to participate you will need to work your way up using the Crew3 platform. You will be rewarded with roles depending on what level you are. More info in docs.",
         },
         {
           q: "What kind of projects will Meadow launch?",
-          a: "Meadow focuses on quality, we will launch projects from all grounds including Gaming, Ai, as long as the project showcases that they are unique and bring great value to the ecosystem, we will incubate them. ",
+          a: "Meadow focuses on quality, we will launch projects from all grounds including Gaming, Ai, as long as the project showcases that they are unique and bring great value to the ecosystem, we will incubate them.",
         },
       ];
   return (
