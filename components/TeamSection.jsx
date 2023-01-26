@@ -55,7 +55,7 @@ function TeamSection({ teamRef, orizontalVariants, inViewVariants }) {
     },
   ];
   return (
-    <div className='w-full h-full'>
+    <div className='w-full h-full '>
       <motion.h3
         initial='hidden'
         whileInView='visible'
@@ -72,7 +72,7 @@ function TeamSection({ teamRef, orizontalVariants, inViewVariants }) {
         whileInView='visible'
         viewport={{ once: true }}
         variants={inViewVariants}
-        className=' max-w-[1500px] mx-auto  mb-[50px] lg:mb-[100px] '
+        className=' max-w-[1500px] md:mx-auto  mb-[50px] lg:mb-[100px] '
       >
         <Swiper
           slidesPerView={"auto"}
@@ -81,11 +81,11 @@ function TeamSection({ teamRef, orizontalVariants, inViewVariants }) {
             clickable: true,
           }}
           modules={[Pagination]}
-          className='   flex   space-x-[15px] w-full  '
+          className='   flex   space-x-[15px] w-full min-[350px]:px-[20px]  '
         >
           {teamInfo.map(({ desc, linkedin, name }, i) => (
             <SwiperSlide key={i} className='relative   '>
-              <div className='flip-card w-[338px]   h-[351px]   lg:w-[538px] relative '>
+              <div className='flip-card w-[338px]   h-[351px] min-[350px]:first:ml-[20px] min-[350px]:last:mr-[20px] md:first:ml-0 md:last:mr-0  lg:w-[538px] relative '>
                 <div className='flip-card-inner  '>
                   <div className='flip-card-front w-full h-full relative  '>
                     
@@ -110,7 +110,7 @@ function TeamSection({ teamRef, orizontalVariants, inViewVariants }) {
                     )}
                     </div>
 
-                    <p >{desc}</p>
+                    <p className=" h-[125px] lg:h-[220px] overflow-scroll scrollbar-hide" >{desc}</p>
                   </div>
                 </div>
               </div>
