@@ -27,13 +27,13 @@ function PrivateRoundSection({inViewVariants}) {
         whileInView='visible'
         viewport={{ once: true }}
         variants={inViewVariants}
-        className='flex   justify-center lg:space-x-[76px] mb-[50px] lg:mb-[152px] flex-col lg:flex-row space-y-[100px] lg:space-y-0'
+        className='flex lg:px-0 px-[20px]  justify-center lg:space-x-[76px] mb-[50px] lg:mb-[152px] flex-col lg:flex-row space-y-[100px] lg:space-y-0'
       >
         <div className=''>
-          <h3 className='leading-[110%] lg:text-[48px] text-black mb-[30px]  text-[30px] lg:ml-0 ml-[20px] w-[300px] lg:w-[426px] h-[106px]'>
+          <h3 className='leading-[110%] lg:text-[48px] text-black mb-[30px]  text-[30px]  w-[300px] lg:w-[426px] h-[106px]'>
             Private Round & Token Information
           </h3>
-          <p className=' h-[130px] leading-[160%] text-[16px] lg:ml-0 ml-[20px]  max-w-[426px]   font-normal'>
+          <p className=' h-[130px] leading-[160%] text-[16px]   max-w-[426px]   font-normal '>
             The Private Round will be priced at $0.10 and the Public Round will
             be priced at $0.12. The private round will be open for participants
             but there will be a set of requirements that must be completed in

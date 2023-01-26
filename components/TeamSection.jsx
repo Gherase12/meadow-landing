@@ -84,15 +84,11 @@ function TeamSection({ teamRef, orizontalVariants, inViewVariants }) {
           className='   flex   space-x-[15px] w-full  '
         >
           {teamInfo.map(({ desc, linkedin, name }, i) => (
-            <SwiperSlide key={i} className='relative'>
-              <div className='flip-card w-[338px]  h-[351px]   lg:w-[538px] relative '>
+            <SwiperSlide key={i} className='relative   '>
+              <div className='flip-card w-[338px]   h-[351px]   lg:w-[538px] relative '>
                 <div className='flip-card-inner  '>
                   <div className='flip-card-front w-full h-full relative  '>
-                    {linkedin && (
-                      <Link href={linkedin}>
-                        <BsLinkedin className='absolute  z-20   right-[110px] lg:right-[170px] top-[160px] lg:top-[150px]  text-[20px] lg:text-[35px]' />
-                      </Link>
-                    )}
+                    
 
                     <Image
                       src={`/team/member-${i + 1}.webp`}
@@ -109,7 +105,7 @@ function TeamSection({ teamRef, orizontalVariants, inViewVariants }) {
                       </h3>
                     {linkedin && (
                       <Link target="_blank" rel="noreferrer noopener" href={linkedin}>
-                        <BsLinkedin className='text-white text-[20px] lg:text-[35px]  ' />
+                        <BsLinkedin className='text-white cursor-pointer text-[20px] lg:text-[35px]  ' />
                       </Link>
                     )}
                     </div>

@@ -111,13 +111,13 @@ export default function Home() {
         <p className='px-[10px] text-[16px] leading-[160%] text-white z-40 lg:w-[462px]  text-center '>
           Our premier incubation program offers resources and expertise to bring
           your vision to reality. You can contact us using this
-          Meadow@meadowlaunch.com, we look forward to potentially working with
+          business@meadowlaunch.com, we look forward to potentially working with
           you!
         </p>
         <div className='flex z-40 space-x-[20px] scale-[0.7] lg:scale-[1] '>
           <DashboardBtn setLoading={setLoading} />
 
-          <button className=' border-white   text-white w-[187px] h-[56px] rounded-full z-40 border-[1px] '>
+          <button onClick={() => { window.location.href = 'mailto:business@meadowlaunch.com'}} className=' border-white   text-white w-[187px] h-[56px] rounded-full z-40 border-[1px] '>
             Contact Us
           </button>
         </div>
