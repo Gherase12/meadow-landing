@@ -46,11 +46,11 @@ function TeamCard({ name, linkedin, desc, index }) {
             ref={arrowRef}
             className='absolute bottom-[5px] orizontal-center animate-bounce '
           >
-          <BiDownArrow
-          className="lg:hidden"
+          <BiDownArrow 
+          className={ `${name =="Edi" && "hidden"} lg:hidden  ` }
           />
           <BiDownArrow
-          className={`${desc.length < 549 ? "hidden": "lg:flex"} hidden  `}
+          className={`${desc.length < 561 ? "hidden": "lg:flex"} hidden  `}
           />
           </div>
           <div className='  h-[50px]  lg:h-[90px] w-full flex items-center space-x-[20px] '>

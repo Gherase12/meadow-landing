@@ -1,7 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu, GiBookmark } from "react-icons/gi";
 import { RiCloseFill } from "react-icons/ri";
+import { GrHomeRounded } from "react-icons/gr";
+import { TfiWrite } from "react-icons/tfi";
+import { AiOutlineTeam } from "react-icons/ai";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import DashboardBtn from "./btn/DashboardBtn";
@@ -10,6 +13,26 @@ function Nav({ homeRef, applyRef, teamRef, setLoading }) {
   const [open, setOpen] = useState(false);
   const addStyle = ["background-gradient", "pb-[10px]"];
   const removeStyle = ["lg:pt-[40px]"];
+
+  const navItems= [
+    {
+      name:"Home",
+      ref: homeRef,
+      Icon:GrHomeRounded
+    },
+    {
+      name:"Apply",
+      ref: applyRef,
+      Icon:TfiWrite,
+    },
+    {
+      name:"Team",
+      ref:teamRef,
+      Icon:AiOutlineTeam
+    }
+   
+
+  ]
 
   const scrollToElement = (Ref) => {
     setOpen(false);
@@ -71,7 +94,10 @@ function Nav({ homeRef, applyRef, teamRef, setLoading }) {
             Team
           </li>
           <Link  target="_blank" rel="noreferrer noopener" href='https://meadow.gitbook.io/docs/'>
-            <li className='cursor-pointer'>Docs</li>
+            
+            <li className='cursor-pointer'>
+            
+              Docs</li>
           </Link>
         </ul>
         <DashboardBtn setLoading={setLoading} />
@@ -93,27 +119,46 @@ function Nav({ homeRef, applyRef, teamRef, setLoading }) {
           className='absolute right-[20px] top-[20px] text-[40px] text-black '
         />
 
-        <ul className='flex flex-col text-black  space-y-[36px]'>
-          <li
-            onClick={() => scrollToElement(homeRef)}
-            className='cursor-pointer'
-          >
-            Home
-          </li>
-          <li
-            onClick={() => scrollToElement(applyRef)}
-            className='cursor-pointer'
-          >
-           Apply
-          </li>
-          <li
-            onClick={() => scrollToElement(teamRef)}
-            className='cursor-pointer'
-          >
-            Team
-          </li>
-          <Link href='https://meadow.gitbook.io/docs/'>
-            <li className='cursor-pointer'>Docs</li>
+        <div className='absolute w-[150px] h-[150px]  bottom-[60px] right-0  2xl:w-[822px] 2xl:h-[822px]  lg:top-[500px]  lg:right-[280px] 2xl:top-[270px] lg:scale-[1.2] z-30 '>
+      <Image src={"/object-1.webp"} fill alt='object-1' />
+    </div>
+
+    <div className='absolute  w-[100px] h-[100px]  top-0  right-[100px]    z-30 '>
+      <Image src={"/object-2.webp"} fill alt='object-2' />
+    </div>
+    <div className='absolute w-[120px] h-[120px] -right-[20px] top-[180px]    z-30 '>
+      <Image
+        src={"/object-3.webp"}
+        fill
+        alt='object-3'
+        className='object-contain'
+      />
+    </div>
+
+        <ul className='flex flex-col text-black  w-full  space-y-[36px] '>
+          {
+            navItems.map(({name, ref, Icon},i)=>(
+              <li
+              onClick={() => scrollToElement(ref)}
+              className='cursor-pointer  flex items-center space-x-[20px] '
+            >
+              <Icon />
+               <p>
+               {name}
+                </p>
+            </li>
+            ))
+          }
+         
+          <div className="border-2 w-full border-black" />
+          <Link target="_blank" rel="noreferrer noopener" href='https://meadow.gitbook.io/docs/'>
+            <li className='cursor-pointer flex items-center space-x-[20px]   '>
+            <GiBookmark />
+            <p>
+
+              Docs
+            </p>
+              </li>
           </Link>
         </ul>
       </div>
