@@ -139,6 +139,7 @@ function Nav({ homeRef, applyRef, teamRef, setLoading }) {
           {
             navItems.map(({name, ref, Icon},i)=>(
               <li
+              key={i}
               onClick={() => scrollToElement(ref)}
               className='cursor-pointer  flex items-center space-x-[20px] '
             >
