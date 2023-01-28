@@ -3,7 +3,7 @@ import { BsLinkedin } from "react-icons/bs";
 import { BiDownArrow } from "react-icons/bi";
 import Image from "next/image";
 import Link from "next/link";
-import MyRefComponent from "./MyRefComponent";
+
 
 function TeamCard({ name, linkedin, desc, index }) {
 
