@@ -22,6 +22,16 @@
 backdrop-filter: blur(10px);
 }
 
+.rotate{
+  transform: rotate(90deg);
+}
+
+.orizontal-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 @font-face {
   font-family: "Satoshi";
   src: url("/fonts/Satoshi-Variable.ttf") format("ttf");
