@@ -47,6 +47,10 @@ function TeamCard({ name, linkedin, desc, index }) {
             className='absolute bottom-[5px] orizontal-center animate-bounce '
           >
           <BiDownArrow
+          className="lg:hidden"
+          />
+          <BiDownArrow
+          className={`${desc.length < 549 ? "hidden": "lg:flex"} hidden  `}
           />
           </div>
           <div className='  h-[50px]  lg:h-[90px] w-full flex items-center space-x-[20px] '>
@@ -60,7 +64,7 @@ function TeamCard({ name, linkedin, desc, index }) {
 
           <p
             ref={descRef}
-            className=' h-[115px] lg:h-[220px] overflow-scroll scrollbar-hide '
+            className=' h-[115px] lg:h-[230px] overflow-scroll scrollbar-hide '
           >
             {desc}
           </p>
