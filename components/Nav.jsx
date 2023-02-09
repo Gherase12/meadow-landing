@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import { GiHamburgerMenu, GiBookmark } from "react-icons/gi";
-import { RiCloseFill } from "react-icons/ri";
-import { GrHomeRounded } from "react-icons/gr";
+
 import { TfiWrite } from "react-icons/tfi";
-import { AiOutlineTeam } from "react-icons/ai";
+import { AiOutlineTeam,AiFillHome, AiOutlineClose, AiOutlineInstagram,AiOutlineTwitter, } from "react-icons/ai";
+import { FaDiscord } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import DashboardBtn from "./btn/DashboardBtn";
@@ -14,25 +14,23 @@ function Nav({ homeRef, applyRef, teamRef, setLoading }) {
   const addStyle = ["background-gradient", "pb-[10px]"];
   const removeStyle = ["lg:pt-[40px]"];
 
-  const navItems= [
+  const navItems = [
     {
-      name:"Home",
+      name: "Home",
       ref: homeRef,
-      Icon:GrHomeRounded
+      Icon: AiFillHome,
     },
     {
-      name:"Apply",
+      name: "Apply",
       ref: applyRef,
-      Icon:TfiWrite,
+      Icon: TfiWrite,
     },
     {
-      name:"Team",
-      ref:teamRef,
-      Icon:AiOutlineTeam
-    }
-   
-
-  ]
+      name: "Team",
+      ref: teamRef,
+      Icon: AiOutlineTeam,
+    },
+  ];
 
   const scrollToElement = (Ref) => {
     setOpen(false);
@@ -46,7 +44,6 @@ function Nav({ homeRef, applyRef, teamRef, setLoading }) {
       if (currentScrollPos > navbar.offsetHeight) {
         navbar.classList.add(...addStyle);
         navbar.classList.remove(...removeStyle);
-   
       } else {
         navbar.classList.remove(...addStyle);
         navbar.classList.add(...removeStyle);
@@ -57,6 +54,20 @@ function Nav({ homeRef, applyRef, teamRef, setLoading }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const socialMedia = [
+    {
+      name: "twitter",
+      Icon: AiOutlineTwitter,
+      link: "https://twitter.com/meadowlaunch",
+    },
+    { name: "discord", Icon: FaDiscord, link: "https://t.co/FLNKZU3ujp" },
+    {
+      name: "instagram",
+      Icon: AiOutlineInstagram,
+      link: "https://www.instagram.com/meadow_launch/",
+    },
+  ];
+
   return (
     <nav className='navbar z-50 top-0 fixed left-0 right-0 pt-[20px]  lg:pt-[40px] flex   text-[18px] font-medium  justify-between items-center lg:px-[61px] px-[20px]   '>
       <Image
@@ -64,14 +75,14 @@ function Nav({ homeRef, applyRef, teamRef, setLoading }) {
         width={40}
         height={40}
         className='lg:hidden'
-        alt="meadow logo"
+        alt='meadow logo'
       />
       <Image
         src='/meadow-lg.svg'
         width={189}
         height={60}
         className=' hidden lg:flex'
-        alt="meadow logo"
+        alt='meadow logo'
       />
       <div className='lg:flex space-x-[36px] hidden '>
         <ul className='flex   text-white items-center space-x-[36px]'>
@@ -93,11 +104,12 @@ function Nav({ homeRef, applyRef, teamRef, setLoading }) {
           >
             Team
           </li>
-          <Link  target="_blank" rel="noreferrer noopener" href='https://meadow.gitbook.io/docs/'>
-            
-            <li className='cursor-pointer'>
-            
-              Docs</li>
+          <Link
+            target='_blank'
+            rel='noreferrer noopener'
+            href='https://meadow.gitbook.io/docs/'
+          >
+            <li className='cursor-pointer'>Docs</li>
           </Link>
         </ul>
         <DashboardBtn setLoading={setLoading} />
@@ -111,57 +123,80 @@ function Nav({ homeRef, applyRef, teamRef, setLoading }) {
         className={`${
           !open
             ? "fixed right-[100%]"
-            : "  fixed top-0 pb-[70px] left-0 text-[30px] h-screen w-[100%] px-[29px] items-center justify-center overflow-y-scroll  flex  flex-col    background-gradient text-white    duration-500 ease-in-out z-50 lg:hidden"
+            : " text-white fixed top-0 pt-[200px] background-gradient   left-0 h-screen  w-[100%] px-[29px] nav-container  overflow-y-scroll  flex  flex-col    bg-blue-2    duration-500 ease-in-out z-[100] xl:hidden"
         }  `}
       >
-        <RiCloseFill
+        <AiOutlineClose
           onClick={() => setOpen(false)}
-          className='absolute right-[20px] top-[20px] text-[40px] text-black '
+          className=' absolute top-[20px] right-[20px] text-white text-[25px]'
         />
+        <div className='     '>
+          <div className=' pb-[60px]   flex flex-col space-y-[30px]  border-b border-gray-4/50   '>
+            {navItems.map(({ Icon, name, ref }, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToElement(ref)}
+                className={`w-[246px]   flex items-center rounded-[12px] `}
+              >
+                <Icon className='mr-[16px] text-[30px] ' />
+                <div className='text-[20px] nav-font font-normal   '>
+                  {name}
+                </div>
+              </button>
+            ))}
+          </div>
 
-        <div className='absolute w-[150px] h-[150px]  bottom-[60px] right-0  2xl:w-[822px] 2xl:h-[822px]  lg:top-[500px]  lg:right-[280px] 2xl:top-[270px] lg:scale-[1.2] z-30 '>
-      <Image src={"/object-1.webp"} fill alt='object-1' />
-    </div>
-
-    <div className='absolute  w-[100px] h-[100px]  top-0  right-[100px]    z-30 '>
-      <Image src={"/object-2.webp"} fill alt='object-2' />
-    </div>
-    <div className='absolute w-[120px] h-[120px] -right-[20px] top-[180px]    z-30 '>
-      <Image
-        src={"/object-3.webp"}
-        fill
-        alt='object-3'
-        className='object-contain'
-      />
-    </div>
-
-        <ul className='flex flex-col text-black  w-full  space-y-[36px] '>
-          {
-            navItems.map(({name, ref, Icon},i)=>(
-              <li
-              key={i}
-              onClick={() => scrollToElement(ref)}
-              className='cursor-pointer  flex items-center space-x-[20px] '
+          <div className='py-[10px] text-[16px] nav-font flex flex-row items-between  justify-around'>
+            <Link
+              target='_blank'
+              rel='noreferrer noopener'
+              href='https://meadow.gitbook.io/docs/'
+              className='h-[42px] py-[12px]  '
             >
-              <Icon />
-               <p>
-               {name}
-                </p>
-            </li>
-            ))
-          }
-         
-          <div className="border-2 w-full border-black" />
-          <Link target="_blank" rel="noreferrer noopener" href='https://meadow.gitbook.io/docs/'>
-            <li className='cursor-pointer flex items-center space-x-[20px]   '>
-            <GiBookmark />
-            <p>
-
               Docs
-            </p>
-              </li>
-          </Link>
-        </ul>
+            </Link>
+            <Link
+              target='_blank'
+              rel='noreferrer noopener'
+              href='https://drive.google.com/drive/folders/1r0gJEzF07XEQ4fGNcLycJUu-BK6uRl-a?usp=share_link'
+              className='h-[42px] py-[12px]  '
+            >
+              Brand Kit
+            </Link>
+            <Link
+              target='_blank'
+              rel='noreferrer noopener'
+              href='https://meadow.gitbook.io/docs/socials-and-links/team'
+              className='h-[42px] py-[12px]  '
+            >
+              Team
+            </Link>
+          </div>
+        </div>
+
+        {/* social buttons*/}
+        <div className=' flex flex-col items-center w-full    '>
+          {/* butoane */}
+          <div className='w-[165px] flex justify-around h-[40px] mb-[35px] '>
+            {socialMedia.map(({ name, Icon, link }, i) => (
+              <Link
+                target='_blank'
+                rel='noreferrer noopener'
+                href={link}
+                key={i}
+                className='rounded-full w-[40px] h-[40px] flex items-center justify-center bg-black '
+              >
+                <Icon />
+              </Link>
+            ))}
+          </div>
+
+          {/* buttons */}
+          <div className='   flex justify-center w-full   '>
+          
+            <DashboardBtn />
+          </div>
+        </div>
       </div>
     </nav>
   );
