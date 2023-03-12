@@ -146,7 +146,7 @@ function Nav({ homeRef, applyRef, teamRef, setLoading }) {
             ))}
           </div>
 
-          <div className='py-[10px] text-[16px] nav-font flex flex-row items-between  justify-around'>
+          <div className='py-[30px] text-[16px] nav-font flex flex-row items-between  justify-around'>
             <Link
               target='_blank'
               rel='noreferrer noopener'

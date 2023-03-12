@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-function TeamCard({ name, linkedin, desc, index }) {
+function TeamCard({ name, linkedin, desc, index , img}) {
 
   const descRef = useRef(null);
   const arrowRef = useRef(null);
@@ -35,7 +35,7 @@ function TeamCard({ name, linkedin, desc, index }) {
       <div className='flip-card-inner  '>
         <div className='flip-card-front w-full h-full relative  '>
           <Image
-            src={`/team/member-${index + 1}.webp`}
+            src={`/team/member-${img}.webp`}
             fill
             className='object-contain lg:shadow-lg lg:rounded-[30px]'
             alt='team member'

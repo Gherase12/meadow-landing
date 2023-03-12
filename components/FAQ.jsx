@@ -12,7 +12,7 @@ function FAQ({ a, q, id, isOpen, setIsOpen }) {
     closed: { height: 0, opacity: 0 },
     open: { height: "auto", opacity: 0.4 },
   };
-
+  // const [open, setIsOpen] = useState(false);
   
    
   return (
